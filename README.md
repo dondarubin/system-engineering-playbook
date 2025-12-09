@@ -4,7 +4,7 @@
 
 ---
 
-
+minor
 ## Локальная разработка
 
 1. Установите mdBook: [инструкция](https://rust-lang.github.io/mdBook/guide/installation.html)

@@ -44,4 +44,4 @@
 
 ## Диаграмма
 
-@drawio{}
+@drawio{https://github.com/dondarubin/system-engineering-playbook/blob/main/src/diagrams/component-schema.drawio}
