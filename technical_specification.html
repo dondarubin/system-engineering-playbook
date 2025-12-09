@@ -1,0 +1,502 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Техническое задание - StartON Launchpad — Web3 платформа для запуска токенов</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="src/_assets/custom.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">StartON Launchpad — Web3 платформа для запуска токенов</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Техническое-задание-стандарт-ieee-29148-2011"><a class="header" href="#Техническое-задание-стандарт-ieee-29148-2011">Техническое задание (стандарт IEEE 29148-2011)</a></h1>
+<p><strong>StartON Launchpad — Web3 платформа для запуска токенов</strong><br />
+<strong>Версия 1.0</strong></p>
+<hr />
+<h2 id="1-Введение"><a class="header" href="#1-Введение"><strong>1. Введение</strong></a></h2>
+<h3 id="11-Цель-документа"><a class="header" href="#11-Цель-документа"><strong>1.1 Цель документа</strong></a></h3>
+<p>Настоящий документ определяет требования к программному обеспечению (ПО) для платформы <strong>StartON Launchpad</strong> — децентрализованной Web3-платформы для запуска и первичного размещения токенов на блокчейне TON (The Open Network). Система состоит из следующих компонентов:</p>
+<ul>
+<li><strong>Набор смарт-контрактов</strong> на блокчейне TON (Core, TokenLaunch, UserVault, Jetton);</li>
+<li><strong>Oracle Service</strong> — сервис мониторинга блокчейна и автоматизации листинга;</li>
+<li><strong>Manager Service</strong> — сервис управления лаунчами, задачами и пользователями;</li>
+<li><strong>Dispenser Service</strong> — сервис управления наградами;</li>
+<li><strong>Telegram Mini App</strong> — веб-приложение для взаимодействия пользователей;</li>
+<li><strong>AI-Chatbot</strong> — интеллектуальный ассистент на базе LLM для поддержки пользователей.</li>
+</ul>
+<p>Цель системы — предоставить создателям токенов инструмент для справедливого и прозрачного запуска проектов, а инвесторам — безопасную среду для участия в ранних стадиях криптопроектов.</p>
+<h3 id="12-Область-применения"><a class="header" href="#12-Область-применения"><strong>1.2 Область применения</strong></a></h3>
+<p>Платформа предназначена для использования создателями токенов (стартапы, сообщества, проекты) и инвесторами, желающими участвовать в ранних стадиях токенсейлов. Может применяться для запуска утилитарных токенов, мем-коинов и социальных токенов на блокчейне TON.</p>
+<h3 id="13-Предполагаемая-аудитория-документа"><a class="header" href="#13-Предполагаемая-аудитория-документа"><strong>1.3 Предполагаемая аудитория документа</strong></a></h3>
+<p>Настоящий документ предназначен для:</p>
+<ul>
+<li>Разработчиков смарт-контрактов и backend-сервисов;</li>
+<li>Frontend-разработчиков Telegram Mini App;</li>
+<li>Тестировщиков и QA-инженеров;</li>
+<li>Технических руководителей проекта;</li>
+<li>Заказчиков и стейкхолдеров проекта.</li>
+</ul>
+<h3 id="14-Масштаб-проекта"><a class="header" href="#14-Масштаб-проекта"><strong>1.4 Масштаб проекта</strong></a></h3>
+<p>Проект StartON Launchpad включает:</p>
+<ul>
+<li>Разработку 5 смарт-контрактов на языке FunC для блокчейна TON;</li>
+<li>Разработку 3 backend-сервисов (Oracle, Manager, Dispenser) на TypeScript;</li>
+<li>Разработку Telegram Mini App на React;</li>
+<li>Интеграцию AI-Chatbot на базе LLM;</li>
+<li>Интеграцию с двумя DEX (STON.fi, DeDust) для автоматического листинга токенов.</li>
+</ul>
+<p>Проект не включает:</p>
+<ul>
+<li>Разработку собственного блокчейна;</li>
+<li>Разработку собственной DEX;</li>
+<li>Разработку мобильных приложений (используется Telegram Mini App).</li>
+</ul>
+<h3 id="15-Определения-аббревиатуры-и-сокращения"><a class="header" href="#15-Определения-аббревиатуры-и-сокращения"><strong>1.5 Определения, аббревиатуры и сокращения</strong></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Термин</th><th>Определение</th></tr></thead><tbody>
+<tr><td>TON</td><td>The Open Network — высокопроизводительный блокчейн, интегрированный с Telegram</td></tr>
+<tr><td>Смарт-контракт</td><td>Программа, исполняемая в блокчейне по заложенным правилам</td></tr>
+<tr><td>Jetton</td><td>Стандарт токенов в блокчейне TON (аналог ERC-20)</td></tr>
+<tr><td>Core Contract</td><td>Главный контракт-фабрика, создающий контракты запуска</td></tr>
+<tr><td>TokenLaunch</td><td>Контракт управления продажей конкретного токена</td></tr>
+<tr><td>UserVault</td><td>Персональный контракт инвестора для хранения балансов</td></tr>
+<tr><td>Minting</td><td>Процесс создания (эмиссии) новых токенов</td></tr>
+<tr><td>Claiming</td><td>Процесс получения инвестором своих токенов</td></tr>
+<tr><td>Refund</td><td>Возврат средств инвестору</td></tr>
+<tr><td>Liquidity Pool</td><td>Пул ликвидности для автоматизированной торговли</td></tr>
+<tr><td>DEX</td><td>Decentralized Exchange — децентрализованная биржа</td></tr>
+<tr><td>Creator Round</td><td>Раунд выкупа токенов создателем</td></tr>
+<tr><td>Whitelist Round</td><td>Раунд продажи для участников whitelist</td></tr>
+<tr><td>Public Round</td><td>Публичный раунд продажи</td></tr>
+<tr><td>Oracle</td><td>Сервис мониторинга блокчейна</td></tr>
+<tr><td>TMA</td><td>Telegram Mini App — веб-приложение внутри Telegram</td></tr>
+<tr><td>IPFS</td><td>InterPlanetary File System — распределённое хранилище</td></tr>
+<tr><td>Highload Wallet</td><td>Кошелёк для массовых операций в TON</td></tr>
+<tr><td>LLM</td><td>Large Language Model — большая языковая модель для AI-Chatbot</td></tr>
+<tr><td>RAG</td><td>Retrieval-Augmented Generation — метод дополнения LLM контекстом</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="2-Общее-описание"><a class="header" href="#2-Общее-описание"><strong>2. Общее описание</strong></a></h2>
+<h3 id="21-Перспектива-продукта"><a class="header" href="#21-Перспектива-продукта"><strong>2.1 Перспектива продукта</strong></a></h3>
+<p>Система состоит из следующих основных компонентов:</p>
+<p><strong>1. Смарт-контракты (OnChain):</strong></p>
+<ul>
+<li><strong>Core Contract (V1/V2)</strong> — главный контракт-фабрика, хранит шаблоны и создаёт TokenLaunch контракты;</li>
+<li><strong>TokenLaunch Contract (V1/V2)</strong> — контракт управления продажей токена с тремя раундами;</li>
+<li><strong>UserVault Contract (V1/V2)</strong> — персональный контракт инвестора, хранит балансы по раундам;</li>
+<li><strong>JettonMaster / JettonWallet</strong> — стандартные контракты токена Jetton;</li>
+<li><strong>HighloadWalletV3</strong> — кошелёк для массовых операций (листинг, распределение).</li>
+</ul>
+<p><strong>2. Oracle Service:</strong></p>
+<ul>
+<li>Сканирование Core контрактов для обнаружения новых лаунчей;</li>
+<li>Парсинг данных токенсейлов из блокчейна;</li>
+<li>Интеграция с DEX (STON.fi, DeDust) для автоматического листинга;</li>
+<li>API для получения данных о лаунчах;</li>
+<li>Отправка уведомлений в Telegram.</li>
+</ul>
+<p><strong>3. Manager Service:</strong></p>
+<ul>
+<li>Telegram Bot для управления лаунчами;</li>
+<li>API для создания лаунчей и управления пользователями;</li>
+<li>Управление задачами (Tasks) и наградами;</li>
+<li>Whitelist management;</li>
+<li>Загрузка метаданных в IPFS.</li>
+</ul>
+<p><strong>4. Dispenser Service:</strong></p>
+<ul>
+<li>Управление пулами наград (Reward Pools);</li>
+<li>Обработка запросов на получение наград;</li>
+<li>Сканирование и распределение Jetton наград.</li>
+</ul>
+<p><strong>5. Frontend (Telegram Mini App):</strong></p>
+<ul>
+<li>Интерфейс для просмотра и участия в токенсейлах;</li>
+<li>Подключение кошелька через TON Connect;</li>
+<li>Управление портфелем инвестиций.</li>
+</ul>
+<p><strong>6. AI-Chatbot на базе LLM, обеспечивающий:</strong></p>
+<ul>
+<li>Ответы на вопросы пользователей о работе платформы;</li>
+<li>Объяснение механик токенсейлов;</li>
+<li>Помощь в создании токена.</li>
+</ul>
+<h3 id="22-Функции-пользователя"><a class="header" href="#22-Функции-пользователя"><strong>2.2 Функции пользователя</strong></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Роль</th><th>Функции</th></tr></thead><tbody>
+<tr><td>Создатель токена</td><td>Загружает метаданные, запускает токен, управляет задачами, отслеживает прогресс сбора</td></tr>
+<tr><td>Инвестор</td><td>Просматривает проекты, покупает whitelist, инвестирует в раундах, получает токены (claim), запрашивает возврат (refund)</td></tr>
+<tr><td>Администратор</td><td>Управляет системой через Telegram Bot: создаёт задачи, настраивает награды, модерирует лаунчи</td></tr>
+</tbody></table>
+</div>
+<p>Основными функциями системы являются:</p>
+<ol>
+<li>Создание токена через Core Contract с загрузкой метаданных в IPFS</li>
+<li>Трёхраундовая продажа токенов (Creator Round → Whitelist Round → Public Round)</li>
+<li>Инвестирование в токенсейлы с созданием персонального UserVault</li>
+<li>Автоматический листинг на DEX после успешного сбора средств</li>
+</ol>
+<h3 id="23-Ограничения"><a class="header" href="#23-Ограничения"><strong>2.3 Ограничения</strong></a></h3>
+<ul>
+<li>Платформа работает исключительно на блокчейне TON.</li>
+<li>Все транзакции требуют оплаты комиссии сети.</li>
+<li>Для использования платформы требуется кошелёк TON.</li>
+<li>AI-Chatbot работает на русском и английском языках.</li>
+</ul>
+<h3 id="24-Предположения-и-зависимости"><a class="header" href="#24-Предположения-и-зависимости"><strong>2.4 Предположения и зависимости</strong></a></h3>
+<ul>
+<li>Блокчейн TON функционирует стабильно и доступен.</li>
+<li>Пользователи имеют базовое понимание криптовалют и кошельков.</li>
+<li>DEX STON.fi и DeDust доступны для создания пулов ликвидности.</li>
+<li>Telegram API доступен для работы Mini App и Bot.</li>
+<li>Внешний LLM-провайдер (OpenAI / Anthropic) доступен для AI-Chatbot.</li>
+</ul>
+<h2 id="3-Функциональные-требования"><a class="header" href="#3-Функциональные-требования"><strong>3. Функциональные требования</strong></a></h2>
+<h3 id="31-Смарт-контракты"><a class="header" href="#31-Смарт-контракты"><strong>3.1 Смарт-контракты</strong></a></h3>
+<h4 id="311-core-contract"><a class="header" href="#311-core-contract"><strong>3.1.1 Core Contract</strong></a></h4>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>SC-1</td><td>Core должен хранить конфигурацию запуска (LaunchConfig): minTonForSaleSuccess, лимиты раундов, длительности</td><td>Высокий</td></tr>
+<tr><td>SC-2</td><td>Core должен хранить байт-код контрактов: TokenLaunch, UserVault, JettonMaster, JettonWallet</td><td>Высокий</td></tr>
+<tr><td>SC-3</td><td>Core должен создавать новый TokenLaunch при получении операции CreateLaunch</td><td>Высокий</td></tr>
+<tr><td>SC-4</td><td>Core должен поддерживать операцию Upgrade для обновления конфигурации</td><td>Средний</td></tr>
+<tr><td>SC-5</td><td>Core должен поддерживать операцию UpdateConfig для изменения параметров</td><td>Средний</td></tr>
+</tbody></table>
+</div>
+<h4 id="312-tokenlaunch-contract"><a class="header" href="#312-tokenlaunch-contract"><strong>3.1.2 TokenLaunch Contract</strong></a></h4>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>TL-1</td><td>TokenLaunch должен поддерживать три раунда продажи: Creator, Whitelist, Public</td><td>Высокий</td></tr>
+<tr><td>TL-2</td><td>TokenLaunch должен принимать операцию CreatorBuyout для выкупа создателем</td><td>Высокий</td></tr>
+<tr><td>TL-3</td><td>TokenLaunch должен принимать операцию PublicPurchase с опциональным referral</td><td>Высокий</td></tr>
+<tr><td>TL-4</td><td>TokenLaunch должен создавать UserVault для каждого инвестора</td><td>Высокий</td></tr>
+<tr><td>TL-5</td><td>TokenLaunch должен поддерживать операцию RefundRequest для возврата средств</td><td>Высокий</td></tr>
+<tr><td>TL-6</td><td>TokenLaunch должен поддерживать операцию DeployJetton после успешного сбора</td><td>Высокий</td></tr>
+<tr><td>TL-7</td><td>TokenLaunch должен поддерживать операцию JettonClaimRequest для выдачи токенов</td><td>Высокий</td></tr>
+<tr><td>TL-8</td><td>TokenLaunch должен хранить метаданные токена и конфигурацию продажи</td><td>Высокий</td></tr>
+<tr><td>TL-9</td><td>TokenLaunch должен отслеживать временные рамки каждого раунда</td><td>Высокий</td></tr>
+<tr><td>TL-10</td><td>TokenLaunch должен поддерживать операцию CreatorRefund при неуспешном сборе</td><td>Средний</td></tr>
+</tbody></table>
+</div>
+<h4 id="313-uservault-contract"><a class="header" href="#313-uservault-contract"><strong>3.1.3 UserVault Contract</strong></a></h4>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>UV-1</td><td>UserVault должен хранить адрес владельца и связанного TokenLaunch</td><td>Высокий</td></tr>
+<tr><td>UV-2</td><td>UserVault должен хранить балансы: wlTonBalance, publicTonBalance, jettonBalance</td><td>Высокий</td></tr>
+<tr><td>UV-3</td><td>UserVault должен хранить флаг hasWhitelist</td><td>Высокий</td></tr>
+<tr><td>UV-4</td><td>UserVault должен предоставлять метод get_vault_data для чтения состояния</td><td>Высокий</td></tr>
+</tbody></table>
+</div>
+<h3 id="32-oracle-service"><a class="header" href="#32-oracle-service"><strong>3.2 Oracle Service</strong></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>OR-1</td><td>Oracle должен сканировать Core контракты и обнаруживать новые TokenLaunch</td><td>Высокий</td></tr>
+<tr><td>OR-2</td><td>Oracle должен парсить данные токенсейлов из блокчейна и сохранять в базу данных</td><td>Высокий</td></tr>
+<tr><td>OR-3</td><td>Oracle должен хранить высоту обработанных блоков для возобновления после перезапуска</td><td>Высокий</td></tr>
+<tr><td>OR-4</td><td>Oracle должен интегрироваться с STON.fi и DeDust для создания пулов ликвидности</td><td>Высокий</td></tr>
+<tr><td>OR-5</td><td>Oracle должен отправлять уведомления в Telegram о новых лаунчах</td><td>Средний</td></tr>
+</tbody></table>
+</div>
+<h3 id="33-manager-service"><a class="header" href="#33-manager-service"><strong>3.3 Manager Service</strong></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>MG-1</td><td>Manager должен предоставлять Telegram Bot для управления лаунчами и задачами</td><td>Высокий</td></tr>
+<tr><td>MG-2</td><td>Manager должен поддерживать создание, удаление и просмотр задач</td><td>Высокий</td></tr>
+<tr><td>MG-3</td><td>Manager должен управлять whitelist и наградами</td><td>Высокий</td></tr>
+<tr><td>MG-4</td><td>Manager должен загружать метаданные токенов в IPFS</td><td>Высокий</td></tr>
+</tbody></table>
+</div>
+<h3 id="34-dispenser-service"><a class="header" href="#34-dispenser-service"><strong>3.4 Dispenser Service</strong></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>DS-1</td><td>Dispenser должен управлять пулами наград (Reward Pools)</td><td>Высокий</td></tr>
+<tr><td>DS-2</td><td>Dispenser должен обрабатывать запросы на получение наград</td><td>Высокий</td></tr>
+<tr><td>DS-3</td><td>Dispenser должен сканировать блокчейн для распределения Jetton-наград</td><td>Высокий</td></tr>
+</tbody></table>
+</div>
+<h3 id="35-frontend-telegram-mini-app"><a class="header" href="#35-frontend-telegram-mini-app"><strong>3.5 Frontend (Telegram Mini App)</strong></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>FE-1</td><td>Приложение должно отображать список активных токенсейлов</td><td>Высокий</td></tr>
+<tr><td>FE-2</td><td>Приложение должно отображать детальную страницу проекта с прогрессом сбора</td><td>Высокий</td></tr>
+<tr><td>FE-3</td><td>Приложение должно поддерживать подключение кошелька через TON Connect</td><td>Высокий</td></tr>
+<tr><td>FE-4</td><td>Приложение должно позволять инвестировать в проект (формирование транзакции)</td><td>Высокий</td></tr>
+<tr><td>FE-5</td><td>Приложение должно отображать портфель пользователя</td><td>Высокий</td></tr>
+<tr><td>FE-6</td><td>Приложение должно поддерживать Claim и Refund операции</td><td>Высокий</td></tr>
+<tr><td>FE-7</td><td>Приложение должно отображать статус whitelist пользователя</td><td>Средний</td></tr>
+<tr><td>FE-8</td><td>Приложение должно отображать систему задач с наградами</td><td>Средний</td></tr>
+<tr><td>FE-9</td><td>Приложение должно интегрировать AI-Chatbot для поддержки пользователей</td><td>Высокий</td></tr>
+</tbody></table>
+</div>
+<h3 id="36-ai-chatbot"><a class="header" href="#36-ai-chatbot"><strong>3.6 AI-Chatbot</strong></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
+<tr><td>AI-1</td><td>Chatbot должен использовать LLM для генерации ответов на вопросы пользователей</td><td>Высокий</td></tr>
+<tr><td>AI-2</td><td>Chatbot должен отвечать на вопросы о работе платформы и механиках токенсейлов</td><td>Высокий</td></tr>
+<tr><td>AI-3</td><td>Chatbot должен помогать пользователям в процессе создания токена</td><td>Средний</td></tr>
+<tr><td>AI-4</td><td>Chatbot должен поддерживать контекст диалога в рамках одной сессии</td><td>Высокий</td></tr>
+<tr><td>AI-5</td><td>Chatbot должен работать на русском и английском языках</td><td>Высокий</td></tr>
+</tbody></table>
+</div>
+<h2 id="4-Нефункциональные-требования"><a class="header" href="#4-Нефункциональные-требования"><strong>4. Нефункциональные требования</strong></a></h2>
+<h3 id="41-Производительность"><a class="header" href="#41-Производительность"><strong>4.1 Производительность</strong></a></h3>
+<ul>
+<li>Время ответа API: ≤ 500 мс для 95% запросов;</li>
+<li>Время обнаружения нового лаунча Oracle: ≤ 60 секунд;</li>
+<li>Время ответа AI-Chatbot: ≤ 5 секунд;</li>
+<li>Поддержка сканирования нескольких Core контрактов параллельно;</li>
+<li>Интервал сканирования блокчейна: 30-60 секунд.</li>
+</ul>
+<h3 id="42-Надёжность"><a class="header" href="#42-Надёжность"><strong>4.2 Надёжность</strong></a></h3>
+<ul>
+<li>Oracle должен автоматически восстанавливаться после сбоев и продолжать сканирование с сохранённой позиции.</li>
+<li>Все критические операции должны логироваться.</li>
+<li>AI-Chatbot должен корректно обрабатывать ошибки LLM-провайдера.</li>
+</ul>
+<h3 id="43-Безопасность"><a class="header" href="#43-Безопасность"><strong>4.3 Безопасность</strong></a></h3>
+<ul>
+<li>Смарт-контракты должны пройти аудит безопасности.</li>
+<li>API должен использовать HTTPS.</li>
+<li>Авторизация через TON Connect с криптографической подписью.</li>
+<li>AI-Chatbot не должен раскрывать конфиденциальную информацию о системе.</li>
+</ul>
+<h3 id="44-Удобство-использования"><a class="header" href="#44-Удобство-использования"><strong>4.4 Удобство использования</strong></a></h3>
+<ul>
+<li>Интерфейс должен быть интуитивно понятным.</li>
+<li>Поддержка русского и английского языков.</li>
+<li>AI-Chatbot должен давать понятные и структурированные ответы.</li>
+</ul>
+<h3 id="45-Совместимость"><a class="header" href="#45-Совместимость"><strong>4.5 Совместимость</strong></a></h3>
+<ul>
+<li>Поддержка кошельков: TON Keeper, Tonhub, MyTonWallet.</li>
+<li>Telegram: версия с поддержкой Mini App.</li>
+<li>Интеграция с DEX: STON.fi, DeDust.</li>
+</ul>
+<h2 id="5-Внешние-интерфейсы"><a class="header" href="#5-Внешние-интерфейсы"><strong>5. Внешние интерфейсы</strong></a></h2>
+<h3 id="51-Интерфейсы-пользователя-ui"><a class="header" href="#51-Интерфейсы-пользователя-ui"><strong>5.1 Интерфейсы пользователя (UI)</strong></a></h3>
+<ul>
+<li>Telegram Mini App: список токенсейлов, страница проекта, портфель, система задач, встроенный AI-чат.</li>
+<li>Telegram Bot: интерфейс администратора для управления системой.</li>
+</ul>
+<h3 id="52-Программные-интерфейсы"><a class="header" href="#52-Программные-интерфейсы"><strong>5.2 Программные интерфейсы</strong></a></h3>
+<ul>
+<li>TON Blockchain: взаимодействие со смарт-контрактами через TonLib.</li>
+<li>TON Connect: протокол авторизации и подключения кошелька.</li>
+<li>STON.fi / DeDust: API для создания пулов ликвидности.</li>
+<li>IPFS: хранение метаданных токенов.</li>
+<li>OpenAI API / Anthropic API: LLM для AI-Chatbot.</li>
+<li>Telegram Bot API: уведомления и управление.</li>
+</ul>
+<h2 id="6-Другие-требования"><a class="header" href="#6-Другие-требования"><strong>6. Другие требования</strong></a></h2>
+<ul>
+<li>Документация по развёртыванию каждого сервиса.</li>
+<li>API-документация в формате Swagger/OpenAPI.</li>
+<li>Unit-тесты для смарт-контрактов.</li>
+<li>Тестирование в TON testnet перед mainnet.</li>
+<li>База знаний для AI-Chatbot.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="component-schema.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="component-schema.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

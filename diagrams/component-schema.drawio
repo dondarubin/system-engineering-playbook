@@ -1,0 +1,248 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0" version="24.0.0">
+  <diagram name="Компонентная схема" id="component-schema-starton">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- ==================== ЗАГОЛОВОК ==================== -->
+        <mxCell id="title" value="Компонентная схема StartON Launchpad" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== ПОЛЬЗОВАТЕЛИ (синий) ==================== -->
+        <mxCell id="users-group" value="Пользователи" style="swimlane;horizontal=1;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="user-creator" value="Создатель токена" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="users-group">
+          <mxGeometry x="25" y="50" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="user-investor" value="Инвестор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="users-group">
+          <mxGeometry x="80" y="50" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="user-admin" value="Администратор" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="users-group">
+          <mxGeometry x="135" y="50" width="40" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== FRONTEND (зелёный) ==================== -->
+        <mxCell id="frontend-group" value="Frontend" style="swimlane;horizontal=1;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="280" y="70" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="tma" value="Telegram&#xa;Mini App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="frontend-group">
+          <mxGeometry x="20" y="45" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="chatbot" value="AI-Chatbot&#xa;(LLM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1" vertex="1" parent="frontend-group">
+          <mxGeometry x="120" y="45" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tonconnect" value="TON Connect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="frontend-group">
+          <mxGeometry x="20" y="115" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tg-bot" value="Telegram Bot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="frontend-group">
+          <mxGeometry x="120" y="115" width="80" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== BACKEND SERVICES (оранжевый) ==================== -->
+        <mxCell id="backend-group" value="Backend Services" style="swimlane;horizontal=1;startSize=30;fillColor=#ffe6cc;strokeColor=#d79b00;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="540" y="70" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="oracle" value="Oracle Service&#xa;(Сканер блокчейна)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1" vertex="1" parent="backend-group">
+          <mxGeometry x="20" y="45" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="manager" value="Manager Service&#xa;(Управление)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1" vertex="1" parent="backend-group">
+          <mxGeometry x="150" y="45" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="dispenser" value="Dispenser Service&#xa;(Награды)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1" vertex="1" parent="backend-group">
+          <mxGeometry x="85" y="115" width="110" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== ХРАНИЛИЩЕ (фиолетовый) ==================== -->
+        <mxCell id="storage-group" value="Хранилище данных" style="swimlane;horizontal=1;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="860" y="70" width="180" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" value="PostgreSQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1" vertex="1" parent="storage-group">
+          <mxGeometry x="20" y="45" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ipfs" value="IPFS" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1" vertex="1" parent="storage-group">
+          <mxGeometry x="100" y="45" width="60" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== TON BLOCKCHAIN (красный) ==================== -->
+        <mxCell id="blockchain-group" value="TON Blockchain" style="swimlane;horizontal=1;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="280" y="290" width="440" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="core" value="Core Contract&#xa;(Фабрика)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1" vertex="1" parent="blockchain-group">
+          <mxGeometry x="20" y="45" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tokenlaunch" value="TokenLaunch&#xa;Contract" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1" vertex="1" parent="blockchain-group">
+          <mxGeometry x="130" y="45" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uservault" value="UserVault&#xa;Contract" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1" vertex="1" parent="blockchain-group">
+          <mxGeometry x="240" y="45" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="jetton" value="Jetton&#xa;Contracts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1" vertex="1" parent="blockchain-group">
+          <mxGeometry x="350" y="45" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="highload" value="HighloadWalletV3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10" vertex="1" parent="blockchain-group">
+          <mxGeometry x="130" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== ВНЕШНИЕ СИСТЕМЫ (серый) ==================== -->
+        <mxCell id="external-group" value="Внешние системы" style="swimlane;horizontal=1;startSize=30;fillColor=#f5f5f5;strokeColor=#666666;rounded=1;fontSize=14;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="760" y="290" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="dex" value="DEX&#xa;(STON.fi / DeDust)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=1" vertex="1" parent="external-group">
+          <mxGeometry x="20" y="45" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="llm-api" value="LLM API&#xa;(OpenAI/Anthropic)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=1" vertex="1" parent="external-group">
+          <mxGeometry x="150" y="45" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="telegram-api" value="Telegram API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11" vertex="1" parent="external-group">
+          <mxGeometry x="85" y="110" width="110" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== СВЯЗИ ==================== -->
+        <!-- Пользователи -> Frontend -->
+        <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333" edge="1" parent="1" source="users-group" target="tma">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- TMA -> Manager -->
+        <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;startArrow=classic;startFill=1" edge="1" parent="1" source="tma" target="manager">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- TMA -> TON Connect -->
+        <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#666666;dashed=1" edge="1" parent="1" source="tma" target="tonconnect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Chatbot -> LLM API -->
+        <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;startArrow=classic;startFill=1" edge="1" parent="1" source="chatbot" target="llm-api">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="140" />
+              <mxPoint x="440" y="60" />
+              <mxPoint x="965" y="60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Manager -> Oracle -->
+        <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;startArrow=classic;startFill=1" edge="1" parent="1" source="manager" target="oracle">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Manager -> Dispenser -->
+        <mxCell id="edge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;startArrow=classic;startFill=1" edge="1" parent="1" source="manager" target="dispenser">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Manager -> PostgreSQL -->
+        <mxCell id="edge7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;startArrow=classic;startFill=1" edge="1" parent="1" source="manager" target="postgres">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Manager -> IPFS -->
+        <mxCell id="edge8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333" edge="1" parent="1" source="manager" target="ipfs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Oracle -> PostgreSQL -->
+        <mxCell id="edge9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;startArrow=classic;startFill=1" edge="1" parent="1" source="oracle" target="postgres">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="615" y="170" />
+              <mxPoint x="830" y="170" />
+              <mxPoint x="830" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Dispenser -> PostgreSQL -->
+        <mxCell id="edge10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#333333;startArrow=classic;startFill=1" edge="1" parent="1" source="dispenser" target="postgres">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Oracle -> TON Blockchain -->
+        <mxCell id="edge11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b85450;startArrow=classic;startFill=1" edge="1" parent="1" source="oracle" target="blockchain-group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- TON Connect -> TON Blockchain -->
+        <mxCell id="edge12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b85450;startArrow=classic;startFill=1" edge="1" parent="1" source="tonconnect" target="blockchain-group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Dispenser -> TON Blockchain -->
+        <mxCell id="edge13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b85450" edge="1" parent="1" source="dispenser" target="highload">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Oracle -> DEX -->
+        <mxCell id="edge14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#666666;startArrow=classic;startFill=1" edge="1" parent="1" source="oracle" target="dex">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="615" y="270" />
+              <mxPoint x="750" y="270" />
+              <mxPoint x="750" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Telegram Bot -> Telegram API -->
+        <mxCell id="edge15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#666666;startArrow=classic;startFill=1" edge="1" parent="1" source="tg-bot" target="telegram-api">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="200" />
+              <mxPoint x="460" y="500" />
+              <mxPoint x="900" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Core -> TokenLaunch (внутри blockchain) -->
+        <mxCell id="edge16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#b85450" edge="1" parent="blockchain-group" source="core" target="tokenlaunch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- TokenLaunch -> UserVault (внутри blockchain) -->
+        <mxCell id="edge17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#b85450;startArrow=classic;startFill=1" edge="1" parent="blockchain-group" source="tokenlaunch" target="uservault">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- TokenLaunch -> Jetton (внутри blockchain) -->
+        <mxCell id="edge18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#b85450" edge="1" parent="blockchain-group" source="tokenlaunch" target="jetton">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- ЛЕГЕНДА -->
+        <mxCell id="legend" value="Легенда" style="swimlane;horizontal=1;startSize=25;fillColor=#fff2cc;strokeColor=#d6b656;rounded=1;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="290" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="Пользователи" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10" vertex="1" parent="legend">
+          <mxGeometry x="10" y="35" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="Frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10" vertex="1" parent="legend">
+          <mxGeometry x="105" y="35" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="Backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10" vertex="1" parent="legend">
+          <mxGeometry x="10" y="70" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="Хранилище" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10" vertex="1" parent="legend">
+          <mxGeometry x="105" y="70" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="Blockchain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10" vertex="1" parent="legend">
+          <mxGeometry x="10" y="105" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" value="Внешние" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10" vertex="1" parent="legend">
+          <mxGeometry x="105" y="105" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg7" value="— Двусторонняя связь" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="legend">
+          <mxGeometry x="10" y="140" width="120" height="20" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+
