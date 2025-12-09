@@ -1,31 +1,711 @@
 openapi: 3.0.0
 info:
-  title: API Documentation
+  title: StartON Launchpad API
+  description: |
+    API для платформы StartON Launchpad — децентрализованной Web3-платформы 
+    для запуска и первичного размещения токенов на блокчейне TON.
+    
+    Система состоит из трёх сервисов:
+    - **Oracle Service** — получение данных о токенсейлах
+    - **Manager Service** — управление лаунчами и пользователями
+    - **Dispenser Service** — управление наградами
   version: 1.0.0
-  description: API documentation for the application
+
 servers:
-  - url: /api
-    description: API prefix
+  - url: https://api.starton.pro/oracle
+    description: Oracle Service
+  - url: https://api.starton.pro/manager
+    description: Manager Service
+  - url: https://api.starton.pro/dispenser
+    description: Dispenser Service
+
+tags:
+  - name: Token Launches
+    description: Операции с токенсейлами (Oracle Service)
+  - name: Launch Management
+    description: Управление лаунчами (Manager Service)
+  - name: User
+    description: Операции с пользователями (Manager Service)
+  - name: Rewards
+    description: Операции с наградами (Dispenser Service)
 
 paths:
-  /ping:
+  # ==================== ORACLE SERVICE ====================
+  /token-launches/get-chunk:
     get:
       tags:
-        - Health Check
+        - Token Launches
+      summary: Получить список токенсейлов
+      description: Возвращает пагинированный список токенсейлов с возможностью сортировки и фильтрации
+      parameters:
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: Номер страницы
+          example: 1
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: Количество элементов на странице
+          example: 10
+        - name: orderBy
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [TOTAL_TONS_COLLECTED, CREATED_AT, START_TIME]
+          description: Поле для сортировки
+        - name: order
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [HIGH_TO_LOW, LOW_TO_HIGH]
+          description: Порядок сортировки
+        - name: succeed
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: ['true', 'false']
+          description: Фильтр по успешности сбора
+        - name: createdBy
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Фильтр по адресу создателя
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Поиск по названию/символу токена
       responses:
-        "200":
+        '200':
+          description: Список токенсейлов
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Ok"
+                $ref: '#/components/schemas/LaunchesChunkResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /token-launches/get-certain:
+    get:
+      tags:
+        - Token Launches
+      summary: Получить конкретный токенсейл
+      description: Возвращает данные конкретного токенсейла по адресу, создателю или URI метаданных
+      parameters:
+        - name: address
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Адрес TokenLaunch контракта
+        - name: creator
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Адрес создателя
+        - name: metadataUri
+          in: query
+          required: false
+          schema:
+            type: string
+          description: URI метаданных в IPFS
+      responses:
+        '200':
+          description: Данные токенсейла
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenLaunch'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          description: Токенсейл не найден
+
+  /token-launches/get-rising-star:
+    get:
+      tags:
+        - Token Launches
+      summary: Получить "восходящую звезду"
+      description: Возвращает токенсейл с наибольшей активностью
+      responses:
+        '200':
+          description: Данные токенсейла
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenLaunch'
+        '500':
+          description: Токенсейл не найден
+
+  # ==================== MANAGER SERVICE ====================
+  /launch/upload-meta:
+    post:
+      tags:
+        - Launch Management
+      summary: Загрузить метаданные токена
+      description: Загружает метаданные токена в IPFS и сохраняет ссылки
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadMetadataRequest'
+      responses:
+        '200':
+          description: CID метаданных в IPFS
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Qmb4Yjspwz3gVq371wvVN9hqzzAoopzv5W1yS49qdTJJ7f"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /launch/buy-wl:
+    post:
+      tags:
+        - Launch Management
+      summary: Купить место в whitelist
+      description: Записывает пользователя в whitelist для токенсейла
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                callerAddress:
+                  type: string
+                  description: Адрес кошелька пользователя
+                launchAddress:
+                  type: string
+                  description: Адрес TokenLaunch контракта
+              required:
+                - callerAddress
+                - launchAddress
+      responses:
+        '200':
+          description: Успешно добавлен в whitelist
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /user/log-user:
+    post:
+      tags:
+        - User
+      summary: Зарегистрировать TMA пользователя
+      description: Сохраняет данные пользователя из Telegram Mini App
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                telegramId:
+                  type: integer
+                  description: Telegram ID пользователя
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                username:
+                  type: string
+                languageCode:
+                  type: string
+              required:
+                - telegramId
+      responses:
+        '200':
+          description: Пользователь зарегистрирован
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /user/connect-wallet:
+    post:
+      tags:
+        - User
+      summary: Подключить кошелёк
+      description: Связывает адрес TON кошелька с пользователем
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                  description: Адрес TON кошелька
+                telegramId:
+                  type: integer
+                  description: Telegram ID пользователя
+                referral:
+                  type: string
+                  description: ID реферала (опционально)
+              required:
+                - address
+                - telegramId
+      responses:
+        '200':
+          description: Данные пользователя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Caller'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /user/tasks:
+    get:
+      tags:
+        - User
+      summary: Получить список задач
+      description: Возвращает список задач с отметкой о выполнении для пользователя
+      parameters:
+        - name: staged
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: ['true', 'false']
+          description: Фильтр по активным задачам
+        - name: address
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Адрес пользователя для проверки выполнения
+      responses:
+        '200':
+          description: Список задач
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /user/ticket-balance:
+    get:
+      tags:
+        - User
+      summary: Получить баланс тикетов
+      description: Возвращает количество тикетов пользователя
+      parameters:
+        - name: address
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес кошелька пользователя
+      responses:
+        '200':
+          description: Баланс тикетов
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 5
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /user/whitelist-status:
+    get:
+      tags:
+        - User
+      summary: Получить статус whitelist
+      description: Проверяет, находится ли пользователь в whitelist для токенсейла
+      parameters:
+        - name: tokenLaunch
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес TokenLaunch контракта
+        - name: callerAddress
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес кошелька пользователя
+      responses:
+        '200':
+          description: Статус whitelist
+          content:
+            application/json:
+              schema:
+                type: boolean
+                example: true
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /user/get-caller:
+    get:
+      tags:
+        - User
+      summary: Получить данные пользователя
+      description: Возвращает данные зарегистрированного пользователя
+      parameters:
+        - name: address
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес кошелька пользователя
+      responses:
+        '200':
+          description: Данные пользователя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Caller'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /user/caller-referrals:
+    get:
+      tags:
+        - User
+      summary: Получить рефералов
+      description: Возвращает список адресов рефералов пользователя
+      parameters:
+        - name: address
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес кошелька пользователя
+      responses:
+        '200':
+          description: Список адресов рефералов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  # ==================== DISPENSER SERVICE ====================
+  /rewards/get-reward-pools:
+    get:
+      tags:
+        - Rewards
+      summary: Получить пулы наград
+      description: Возвращает пулы наград для указанных токенсейлов
+      parameters:
+        - name: tokenLaunches
+          in: query
+          required: true
+          schema:
+            type: string
+          description: JSON-массив адресов TokenLaunch контрактов
+          example: '["EQ...", "EQ..."]'
+      responses:
+        '200':
+          description: Пулы наград по токенсейлам
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappedRewardPools'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /rewards/get-amount:
+    get:
+      tags:
+        - Rewards
+      summary: Получить сумму для клейма
+      description: Возвращает сумму TON, необходимую для получения наград
+      parameters:
+        - name: userAddress
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес кошелька пользователя
+        - name: tokenLaunch
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Адрес TokenLaunch (опционально)
+      responses:
+        '200':
+          description: Сумма в нано-TON
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "50000000"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /rewards/get-reward-positions:
+    get:
+      tags:
+        - Rewards
+      summary: Получить позиции наград
+      description: Возвращает позиции наград пользователя
+      parameters:
+        - name: userAddress
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес кошелька пользователя
+        - name: tokenLaunch
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Адрес TokenLaunch (опционально)
+      responses:
+        '200':
+          description: Позиции наград по токенсейлам
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappedRewardPositions'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /rewards/get-reward-balances:
+    get:
+      tags:
+        - Rewards
+      summary: Получить балансы наград
+      description: Возвращает балансы Jetton-наград пользователя
+      parameters:
+        - name: userAddress
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Адрес кошелька пользователя
+      responses:
+        '200':
+          description: Балансы наград
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RewardJettonBalance'
+        '400':
+          $ref: '#/components/responses/BadRequest'
 
 components:
   schemas:
-    Ok:
+    TokenLaunch:
       type: object
       properties:
-        ok:
+        address:
+          type: string
+          description: Адрес TokenLaunch контракта
+        identifier:
+          type: string
+          description: Идентификатор (symbol + name + description)
+        creator:
+          type: string
+          description: Адрес создателя
+        version:
+          type: string
+          enum: [V1, V2]
+          description: Версия контракта
+        metadata:
+          $ref: '#/components/schemas/TokenMetadata'
+        platformShare:
+          type: number
+          description: Доля платформы в процентах
+        minTonThreshold:
+          type: string
+          description: Минимальная сумма для успешного сбора
+        totalSupply:
+          type: string
+          description: Общее количество токенов
+        timings:
+          $ref: '#/components/schemas/LaunchTimings'
+        createdAt:
+          type: integer
+          description: Время создания (Unix timestamp)
+
+    TokenMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "StartON Token"
+        symbol:
+          type: string
+          example: "STON"
+        description:
+          type: string
+        image:
+          type: string
+          description: URL изображения
+        decimals:
+          type: string
+          example: "9"
+
+    LaunchTimings:
+      type: object
+      properties:
+        startTime:
+          type: integer
+        creatorRoundEndTime:
+          type: integer
+        wlRoundEndTime:
+          type: integer
+        publicRoundEndTime:
+          type: integer
+
+    LaunchesChunkResponse:
+      type: object
+      properties:
+        launchesChunk:
+          type: array
+          items:
+            $ref: '#/components/schemas/TokenLaunch'
+        hasMore:
           type: boolean
-          example: true
+          description: Есть ли ещё страницы
+
+    UploadMetadataRequest:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/TokenMetadata'
+        image:
+          type: string
+          description: Base64-encoded изображение
+        links:
+          type: object
+          properties:
+            x:
+              type: string
+              description: Ссылка на Twitter/X
+            telegram:
+              type: string
+              description: Ссылка на Telegram
+            website:
+              type: string
+              description: Ссылка на сайт
+        influencerSupport:
+          type: string
+          enum: ['true', 'false']
+        chatStuff:
+          type: object
+          properties:
+            link:
+              type: string
+            threshold:
+              type: string
       required:
-        - ok
+        - metadata
+        - links
+
+    Caller:
+      type: object
+      properties:
+        address:
+          type: string
+          description: Адрес кошелька
+        telegramId:
+          type: integer
+          description: Telegram ID
+        username:
+          type: string
+        referralAddress:
+          type: string
+        tickets:
+          type: integer
+
+    Task:
+      type: object
+      properties:
+        taskId:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        reward:
+          type: integer
+        completed:
+          type: boolean
+
+    MappedRewardPools:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          $ref: '#/components/schemas/RewardPool'
+
+    RewardPool:
+      type: object
+      properties:
+        tokenLaunch:
+          type: string
+        rewardJetton:
+          type: string
+        totalAmount:
+          type: string
+
+    MappedRewardPositions:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          $ref: '#/components/schemas/RewardPosition'
+
+    RewardPosition:
+      type: object
+      properties:
+        tokenLaunch:
+          type: string
+        userAddress:
+          type: string
+        amount:
+          type: string
+
+    RewardJettonBalance:
+      type: object
+      properties:
+        jettonMaster:
+          type: string
+        balance:
+          type: string
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: "Invalid request parameters"
+
+  responses:
+    BadRequest:
+      description: Некорректный запрос
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

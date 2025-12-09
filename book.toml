@@ -1,9 +1,8 @@
 [book]
-authors = ["Jho00"]
+authors = ["dondarubin"]
 language = "en"
-multilingual = false
 src = "src"
-title = "system-engineering-playbook"
+title = "StartON Launchpad — Web3 платформа для запуска токенов"
 
 [build]
 build-dir = "book"
