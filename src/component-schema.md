@@ -53,6 +53,14 @@
                ← HighloadWallet (рассылка Jetton-наград)
 ```
 
+### Refund при неудачном лаунче (Инвестор)
+
+```
+Инвестор → TMA → Oracle (статус лаунча)
+               → TON Connect → TON Wallet → TON Network (запрос refund в TokenLaunch)
+               ← UserVault (возврат TON)
+```
+
 ### Администрирование
 
 ```

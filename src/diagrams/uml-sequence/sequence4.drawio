@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.6">
   <diagram name="Sequence 4 - Refund при неудачном лаунче" id="sequence-4">
-    <mxGraphModel dx="1544" dy="1366" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1600" math="0" shadow="0">
+    <mxGraphModel dx="676" dy="502" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1600" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10,25 +10,73 @@
         <mxCell id="actor-investor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;participant=umlActor;" value="Инвестор" vertex="1">
           <mxGeometry height="1400" width="40" x="80" y="80" as="geometry" />
         </mxCell>
+        <mxCell id="act-investor-2" parent="actor-investor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="40" width="10" x="15" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="act-investor-3" parent="actor-investor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="15" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="act-investor-4" parent="actor-investor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="15" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="act-investor-5" parent="actor-investor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="15" y="740" as="geometry" />
+        </mxCell>
         <mxCell id="lifeline-tma" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;" value="TMA" vertex="1">
           <mxGeometry height="1400" width="100" x="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act-tma-1" parent="lifeline-tma" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="40" width="10" x="45" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act-tma-2" parent="lifeline-tma" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="110" width="10" x="45" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="act-tma-3" parent="lifeline-tma" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="act-tma-4" parent="lifeline-tma" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="120" width="10" x="45" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="act-tma-5" parent="lifeline-tma" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="Dr1YacJoyvaVnowM025y-1" parent="lifeline-tma" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="320" as="geometry" />
         </mxCell>
         <mxCell id="lifeline-oracle" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;" value="Oracle" vertex="1">
           <mxGeometry height="1400" width="100" x="400" y="80" as="geometry" />
         </mxCell>
+        <mxCell id="act-oracle-1" parent="lifeline-oracle" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="370" as="geometry" />
+        </mxCell>
         <mxCell id="lifeline-tonconnect" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;" value="TON Connect" vertex="1">
           <mxGeometry height="1400" width="100" x="580" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act-tonconnect-1" parent="lifeline-tonconnect" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="act-tonconnect-2" parent="lifeline-tonconnect" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="1190" as="geometry" />
         </mxCell>
         <mxCell id="lifeline-wallet" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;" value="TON Wallet" vertex="1">
           <mxGeometry height="1400" width="100" x="760" y="80" as="geometry" />
         </mxCell>
+        <mxCell id="act-wallet-1" parent="lifeline-wallet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="Dr1YacJoyvaVnowM025y-2" parent="lifeline-wallet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="50" width="10" x="45" y="790" as="geometry" />
+        </mxCell>
         <mxCell id="lifeline-uservault" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;" value="UserVault&#xa;(Контракт)" vertex="1">
           <mxGeometry height="1400" width="100" x="940" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="act-uservault-1" parent="lifeline-uservault" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="260" width="10" x="45" y="840" as="geometry" />
         </mxCell>
         <mxCell id="msg1" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="100" y="160" as="sourcePoint" />
-            <mxPoint x="260" y="160" as="targetPoint" />
+            <mxPoint x="265" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg1-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="1: Открыть приложение" vertex="1">
@@ -36,17 +84,17 @@
         </mxCell>
         <mxCell id="msg2" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="260" y="200" as="sourcePoint" />
+            <mxPoint x="265" y="200" as="sourcePoint" />
             <mxPoint x="100" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg2-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="2: Показать кнопку «Подключить кошелёк»" vertex="1">
-          <mxGeometry height="20" width="200" x="85" y="180" as="geometry" />
+          <mxGeometry height="20" width="200" x="65" y="180" as="geometry" />
         </mxCell>
         <mxCell id="msg3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="100" y="240" as="sourcePoint" />
-            <mxPoint x="260" y="240" as="targetPoint" />
+            <mxPoint x="265" y="240" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg3-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="3: Подключить кошелёк" vertex="1">
@@ -57,7 +105,7 @@
         </mxCell>
         <mxCell id="msg9" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="260" y="350" as="sourcePoint" />
+            <mxPoint x="265" y="350" as="sourcePoint" />
             <mxPoint x="100" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -67,7 +115,7 @@
         <mxCell id="msg10" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="100" y="400" as="sourcePoint" />
-            <mxPoint x="260" y="400" as="targetPoint" />
+            <mxPoint x="265" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg10-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="10: Открыть страницу лаунча" vertex="1">
@@ -75,8 +123,8 @@
         </mxCell>
         <mxCell id="msg11" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="280" y="450" as="sourcePoint" />
-            <mxPoint x="440" y="450" as="targetPoint" />
+            <mxPoint x="275" y="450" as="sourcePoint" />
+            <mxPoint x="445" y="450" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg11-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="11: Запросить данные лаунча" vertex="1">
@@ -84,8 +132,8 @@
         </mxCell>
         <mxCell id="msg12" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="440" y="500" as="sourcePoint" />
-            <mxPoint x="280" y="500" as="targetPoint" />
+            <mxPoint x="445" y="500" as="sourcePoint" />
+            <mxPoint x="275" y="500" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg12-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="12: Вернуть данные и баланс" vertex="1">
@@ -93,7 +141,7 @@
         </mxCell>
         <mxCell id="msg13" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="260" y="550" as="sourcePoint" />
+            <mxPoint x="265" y="550" as="sourcePoint" />
             <mxPoint x="100" y="550" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -103,7 +151,7 @@
         <mxCell id="msg14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="100" y="600" as="sourcePoint" />
-            <mxPoint x="260" y="600" as="targetPoint" />
+            <mxPoint x="265" y="600" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg14-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="14: Нажать «Вернуть средства»" vertex="1">
@@ -112,19 +160,19 @@
         <mxCell id="msg15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;curved=1;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="320" y="660" />
+              <mxPoint x="325" y="660" />
             </Array>
-            <mxPoint x="270" y="640" as="sourcePoint" />
-            <mxPoint x="270" y="680" as="targetPoint" />
+            <mxPoint x="275" y="640" as="sourcePoint" />
+            <mxPoint x="275" y="680" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg15-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="15: Сформировать транзакцию refund" vertex="1">
-          <mxGeometry height="20" width="180" x="310" y="650" as="geometry" />
+          <mxGeometry height="20" width="180" x="315" y="650" as="geometry" />
         </mxCell>
         <mxCell id="msg16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="280" y="720" as="sourcePoint" />
-            <mxPoint x="620" y="720" as="targetPoint" />
+            <mxPoint x="275" y="720" as="sourcePoint" />
+            <mxPoint x="625" y="720" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg16-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="16: Отправить транзакцию возврата" vertex="1">
@@ -132,8 +180,8 @@
         </mxCell>
         <mxCell id="msg17" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="640" y="770" as="sourcePoint" />
-            <mxPoint x="800" y="770" as="targetPoint" />
+            <mxPoint x="635" y="770" as="sourcePoint" />
+            <mxPoint x="805" y="770" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg17-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="17: Показать детали транзакции" vertex="1">
@@ -141,7 +189,7 @@
         </mxCell>
         <mxCell id="msg18" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="800" y="820" as="sourcePoint" />
+            <mxPoint x="805" y="820" as="sourcePoint" />
             <mxPoint x="100" y="820" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -151,7 +199,7 @@
         <mxCell id="msg19" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="100" y="870" as="sourcePoint" />
-            <mxPoint x="800" y="870" as="targetPoint" />
+            <mxPoint x="805" y="870" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg19-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="19: Подтвердить транзакцию" vertex="1">
@@ -159,8 +207,8 @@
         </mxCell>
         <mxCell id="msg20" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="820" y="920" as="sourcePoint" />
-            <mxPoint x="980" y="920" as="targetPoint" />
+            <mxPoint x="815" y="920" as="sourcePoint" />
+            <mxPoint x="985" y="920" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg20-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="20: Запросить возврат средств" vertex="1">
@@ -169,14 +217,14 @@
         <mxCell id="msg21" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;curved=1;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1040" y="980" />
+              <mxPoint x="1045" y="980" />
             </Array>
-            <mxPoint x="990" y="960" as="sourcePoint" />
-            <mxPoint x="990" y="1000" as="targetPoint" />
+            <mxPoint x="995" y="960" as="sourcePoint" />
+            <mxPoint x="995" y="1000" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg21-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="21: Проверить условия возврата" vertex="1">
-          <mxGeometry height="20" width="160" x="1030" y="970" as="geometry" />
+          <mxGeometry height="20" width="160" x="1035" y="970" as="geometry" />
         </mxCell>
         <mxCell id="alt-frame" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=50;height=20;" value="alt" vertex="1">
           <mxGeometry height="200" width="320" x="760" y="1030" as="geometry" />
@@ -186,8 +234,8 @@
         </mxCell>
         <mxCell id="msg22" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="980" y="1080" as="sourcePoint" />
-            <mxPoint x="820" y="1080" as="targetPoint" />
+            <mxPoint x="985" y="1080" as="sourcePoint" />
+            <mxPoint x="815" y="1080" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg22-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="22: Перевести TON обратно" vertex="1">
@@ -201,8 +249,8 @@
         </mxCell>
         <mxCell id="msg22b" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;strokeColor=#b85450;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="980" y="1180" as="sourcePoint" />
-            <mxPoint x="820" y="1180" as="targetPoint" />
+            <mxPoint x="985" y="1180" as="sourcePoint" />
+            <mxPoint x="815" y="1180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg22b-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;fontColor=#b85450;" value="Ошибка: возврат недоступен" vertex="1">
@@ -210,8 +258,8 @@
         </mxCell>
         <mxCell id="msg23" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="800" y="1270" as="sourcePoint" />
-            <mxPoint x="640" y="1270" as="targetPoint" />
+            <mxPoint x="805" y="1270" as="sourcePoint" />
+            <mxPoint x="635" y="1270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg23-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="23: Результат транзакции" vertex="1">
@@ -219,8 +267,8 @@
         </mxCell>
         <mxCell id="msg24" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="620" y="1320" as="sourcePoint" />
-            <mxPoint x="280" y="1320" as="targetPoint" />
+            <mxPoint x="625" y="1320" as="sourcePoint" />
+            <mxPoint x="275" y="1320" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="msg24-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;" value="24: Транзакция завершена" vertex="1">
@@ -228,7 +276,7 @@
         </mxCell>
         <mxCell id="msg25" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;rounded=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="260" y="1370" as="sourcePoint" />
+            <mxPoint x="265" y="1370" as="sourcePoint" />
             <mxPoint x="100" y="1370" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -237,6 +285,9 @@
         </mxCell>
         <mxCell id="note1" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;align=left;spacingLeft=5;fontSize=9;" value="Условия возврата:&#xa;• Время после раунда создателя&#xa;• Токен ещё не задеплоен&#xa;(проверяется смарт-контрактом)" vertex="1">
           <mxGeometry height="70" width="175" x="1200" y="945" as="geometry" />
+        </mxCell>
+        <mxCell id="Dr1YacJoyvaVnowM025y-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1">
+          <mxGeometry height="190" width="10" x="805" y="1080" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
