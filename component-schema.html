@@ -177,46 +177,57 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="Компонентная-схема-сервисов"><a class="header" href="#Компонентная-схема-сервисов">Компонентная схема сервисов</a></h1>
-<p>Схема иллюстрирует архитектуру платформы StartON Launchpad — децентрализованной Web3-платформы для запуска токенов на блокчейне TON.</p>
-<h2 id="Ключевые-компоненты"><a class="header" href="#Ключевые-компоненты">Ключевые компоненты</a></h2>
-<h3 id="Пользователи"><a class="header" href="#Пользователи">Пользователи</a></h3>
+<p>Схема иллюстрирует архитектуру платформы StartON Launchpad — Web3-платформы для запуска токенов на блокчейне TON.</p>
+<h2 id="Компоненты"><a class="header" href="#Компоненты">Компоненты</a></h2>
+<h3 id="Инфраструктура"><a class="header" href="#Инфраструктура">Инфраструктура</a></h3>
 <ul>
-<li><strong>Создатель токена</strong> — запускает новые токенсейлы через платформу</li>
-<li><strong>Инвестор</strong> — участвует в токенсейлах и получает награды</li>
-<li><strong>Администратор</strong> — управляет платформой через Telegram Bot</li>
+<li><strong>Telegram Mini App</strong> — UI на React/Next.js + TON Connect + AI-Chatbot</li>
+<li><strong>Oracle Service</strong> — сканирует блокчейн, предоставляет данные о лаунчах</li>
+<li><strong>Manager Service</strong> — управление пользователями, задачами, whitelist + Telegram Bot</li>
+<li><strong>Dispenser Service</strong> — управление наградами и их распределение</li>
+<li><strong>PostgreSQL</strong> — основная база данных</li>
+<li><strong>IPFS (своя нода)</strong> — хранение метаданных токенов</li>
 </ul>
-<h3 id="frontend"><a class="header" href="#frontend">Frontend</a></h3>
+<h3 id="Смарт-контракты-в-ton-network"><a class="header" href="#Смарт-контракты-в-ton-network">Смарт-контракты (в TON Network)</a></h3>
 <ul>
-<li><strong>Telegram Mini App</strong> — основной пользовательский интерфейс для участия в токенсейлах</li>
-<li><strong>AI-Chatbot</strong> — интеллектуальный помощник на базе LLM для ответов на вопросы пользователей</li>
-<li><strong>TON Connect</strong> — протокол авторизации через TON-кошелёк</li>
-<li><strong>Telegram Bot</strong> — интерфейс для администрирования платформы</li>
+<li><strong>Core</strong> → <strong>TokenLaunch</strong> → <strong>UserVault</strong> / <strong>Jetton</strong></li>
+<li><strong>HighloadWallet</strong> — массовая рассылка наград</li>
 </ul>
-<h3 id="backend-services"><a class="header" href="#backend-services">Backend Services</a></h3>
+<h3 id="Внешние-сервисы"><a class="header" href="#Внешние-сервисы">Внешние сервисы</a></h3>
 <ul>
-<li><strong>Oracle Service</strong> — сканирует блокчейн TON, отслеживает транзакции токенсейлов, интегрируется с DEX</li>
-<li><strong>Manager Service</strong> — управляет лаунчами, пользователями, задачами, загружает метаданные в IPFS</li>
-<li><strong>Dispenser Service</strong> — управляет пулами наград и распределяет Jetton-награды через HighloadWallet</li>
+<li><strong>TON Wallet</strong> (Tonkeeper и др.) — кошельки пользователей</li>
+<li><strong>TON Network</strong> — блокчейн TON</li>
+<li><strong>DEX</strong> (STON.fi/DeDust) — автоматический листинг токенов</li>
+<li><strong>LLM API</strong> — ответы AI-чатбота</li>
+<li><strong>Telegram API</strong> — работа бота</li>
 </ul>
-<h3 id="Хранилище-данных"><a class="header" href="#Хранилище-данных">Хранилище данных</a></h3>
-<ul>
-<li><strong>PostgreSQL</strong> — основная база данных для хранения состояния системы</li>
-<li><strong>IPFS</strong> — децентрализованное хранилище метаданных токенов</li>
-</ul>
-<h3 id="ton-blockchain-Смарт-контракты"><a class="header" href="#ton-blockchain-Смарт-контракты">TON Blockchain (Смарт-контракты)</a></h3>
-<ul>
-<li><strong>Core Contract</strong> — фабрика для создания новых токенсейлов</li>
-<li><strong>TokenLaunch Contract</strong> — управляет жизненным циклом токенсейла</li>
-<li><strong>UserVault Contract</strong> — хранит инвестиции пользователей</li>
-<li><strong>Jetton Contracts</strong> — стандартные контракты токенов (JettonMaster/JettonWallet)</li>
-<li><strong>HighloadWalletV3</strong> — кошелёк для массовой рассылки транзакций</li>
-</ul>
-<h3 id="Внешние-системы"><a class="header" href="#Внешние-системы">Внешние системы</a></h3>
-<ul>
-<li><strong>DEX (STON.fi / DeDust)</strong> — децентрализованные биржи для листинга токенов</li>
-<li><strong>LLM API (OpenAI/Anthropic)</strong> — API для AI-Chatbot</li>
-<li><strong>Telegram API</strong> — API для работы с Telegram Bot</li>
-</ul>
+<hr />
+<h2 id="flow-взаимодействия"><a class="header" href="#flow-взаимодействия">Flow взаимодействия</a></h2>
+<h3 id="Участие-в-лаунче-Инвестор"><a class="header" href="#Участие-в-лаунче-Инвестор">Участие в лаунче (Инвестор)</a></h3>
+<pre><code>Инвестор → TMA → Oracle (данные о лаунче)
+                → Manager (регистрация, whitelist)
+                → TON Connect → TON Wallet → TON Network (депозит в TokenLaunch)
+</code></pre>
+<h3 id="Создание-лаунча-Создатель"><a class="header" href="#Создание-лаунча-Создатель">Создание лаунча (Создатель)</a></h3>
+<pre><code>Создатель → TMA → Manager → IPFS (загрузка метаданных)
+                → TON Connect → TON Wallet → TON Network (деплой через Core)
+</code></pre>
+<h3 id="Получение-наград-Инвестор"><a class="header" href="#Получение-наград-Инвестор">Получение наград (Инвестор)</a></h3>
+<pre><code>Инвестор → TMA → Dispenser (сумма для клейма)
+               → TON Connect → TON Wallet → TON Network
+               ← HighloadWallet (рассылка Jetton-наград)
+</code></pre>
+<h3 id="Администрирование"><a class="header" href="#Администрирование">Администрирование</a></h3>
+<pre><code>Админ → Telegram Bot (часть Manager) → PostgreSQL (задачи, награды)
+                                     → Telegram API (уведомления)
+</code></pre>
+<h3 id="Фоновые-процессы"><a class="header" href="#Фоновые-процессы">Фоновые процессы</a></h3>
+<pre><code>Oracle ← TON Network (сканирование транзакций)
+Oracle → DEX (создание пулов ликвидности)
+Oracle/Manager/Dispenser ↔ PostgreSQL (хранение данных)
+AI-Chatbot ↔ LLM API (ответы на вопросы)
+</code></pre>
+<hr />
 <h2 id="Диаграмма"><a class="header" href="#Диаграмма">Диаграмма</a></h2>
 <iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/component-schema.drawio"></iframe>
 

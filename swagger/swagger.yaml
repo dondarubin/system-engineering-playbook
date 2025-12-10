@@ -6,7 +6,7 @@ info:
     для запуска и первичного размещения токенов на блокчейне TON.
     
     Система состоит из трёх сервисов:
-    - **Oracle Service** — получение данных о токенсейлах
+    - **Oracle Service** — получение данных о лаунчах
     - **Manager Service** — управление лаунчами и пользователями
     - **Dispenser Service** — управление наградами
   version: 1.0.0
@@ -21,7 +21,7 @@ servers:
 
 tags:
   - name: Token Launches
-    description: Операции с токенсейлами (Oracle Service)
+    description: Операции с лаунчами (Oracle Service)
   - name: Launch Management
     description: Управление лаунчами (Manager Service)
   - name: User
@@ -35,8 +35,8 @@ paths:
     get:
       tags:
         - Token Launches
-      summary: Получить список токенсейлов
-      description: Возвращает пагинированный список токенсейлов с возможностью сортировки и фильтрации
+      summary: Получить список лаунчей
+      description: Возвращает пагинированный список лаунчей с возможностью сортировки и фильтрации
       parameters:
         - name: page
           in: query
@@ -87,7 +87,7 @@ paths:
           description: Поиск по названию/символу токена
       responses:
         '200':
-          description: Список токенсейлов
+          description: Список лаунчей
           content:
             application/json:
               schema:
@@ -99,8 +99,8 @@ paths:
     get:
       tags:
         - Token Launches
-      summary: Получить конкретный токенсейл
-      description: Возвращает данные конкретного токенсейла по адресу, создателю или URI метаданных
+      summary: Получить конкретный лаунч
+      description: Возвращает данные конкретного лаунча по адресу, создателю или URI метаданных
       parameters:
         - name: address
           in: query
@@ -122,7 +122,7 @@ paths:
           description: URI метаданных в IPFS
       responses:
         '200':
-          description: Данные токенсейла
+          description: Данные лаунча
           content:
             application/json:
               schema:
@@ -130,23 +130,23 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
         '500':
-          description: Токенсейл не найден
+          description: Лаунч не найден
 
   /token-launches/get-rising-star:
     get:
       tags:
         - Token Launches
       summary: Получить "восходящую звезду"
-      description: Возвращает токенсейл с наибольшей активностью
+      description: Возвращает лаунч с наибольшей активностью
       responses:
         '200':
-          description: Данные токенсейла
+          description: Данные лаунча
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TokenLaunch'
         '500':
-          description: Токенсейл не найден
+          description: Лаунч не найден
 
   # ==================== MANAGER SERVICE ====================
   /launch/upload-meta:
@@ -177,7 +177,7 @@ paths:
       tags:
         - Launch Management
       summary: Купить место в whitelist
-      description: Записывает пользователя в whitelist для токенсейла
+      description: Записывает пользователя в whitelist для лаунча
       requestBody:
         required: true
         content:
@@ -328,7 +328,7 @@ paths:
       tags:
         - User
       summary: Получить статус whitelist
-      description: Проверяет, находится ли пользователь в whitelist для токенсейла
+      description: Проверяет, находится ли пользователь в whitelist для лаунча
       parameters:
         - name: tokenLaunch
           in: query
@@ -407,7 +407,7 @@ paths:
       tags:
         - Rewards
       summary: Получить пулы наград
-      description: Возвращает пулы наград для указанных токенсейлов
+      description: Возвращает пулы наград для указанных лаунчей
       parameters:
         - name: tokenLaunches
           in: query
@@ -418,7 +418,7 @@ paths:
           example: '["EQ...", "EQ..."]'
       responses:
         '200':
-          description: Пулы наград по токенсейлам
+          description: Пулы наград по лаунчам
           content:
             application/json:
               schema:
@@ -477,7 +477,7 @@ paths:
           description: Адрес TokenLaunch (опционально)
       responses:
         '200':
-          description: Позиции наград по токенсейлам
+          description: Позиции наград по лаунчам
           content:
             application/json:
               schema:

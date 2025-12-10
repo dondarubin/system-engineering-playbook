@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.6">
+  <diagram name="Use Case 1 - Участие в лаунче" id="use-case-1">
+    <mxGraphModel dx="2206" dy="2851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" value="Use Case: Участие в лаунче" vertex="1">
+          <mxGeometry height="40" width="400" x="400" y="-80" as="geometry" />
+        </mxCell>
+        <mxCell id="system-boundary" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="500" width="640" x="280" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="system-name" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" value="StartON Launchpad" vertex="1">
+          <mxGeometry height="30" width="180" x="270" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-investor" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Инвестор" vertex="1">
+          <mxGeometry height="80" width="40" x="100" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-blockchain" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="TON Blockchain" vertex="1">
+          <mxGeometry height="80" width="40" x="1050" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-participate" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=12;" value="Участие в лаунче" vertex="1">
+          <mxGeometry height="80" width="160" x="520" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-auth" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=11;" value="Авторизация через&#xa;TON Connect" vertex="1">
+          <mxGeometry height="70" width="140" x="310" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-view-list" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=11;" value="Просмотр списка&#xa;лаунчей" vertex="1">
+          <mxGeometry height="70" width="140" x="530" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-view-details" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=11;" value="Просмотр деталей&#xa;лаунча" vertex="1">
+          <mxGeometry height="70" width="140" x="750" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-enter-amount" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=11;" value="Ввод суммы&#xa;инвестиции" vertex="1">
+          <mxGeometry height="70" width="140" x="530" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-confirm-tx" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=11;" value="Подтверждение&#xa;транзакции" vertex="1">
+          <mxGeometry height="70" width="140" x="310" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-send-ton" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=11;" value="Отправка TON на&#xa;смарт-контракт" vertex="1">
+          <mxGeometry height="70" width="140" x="750" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-receive-tokens" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;fontSize=11;" value="Получение токенов&#xa;после завершения" vertex="1">
+          <mxGeometry height="70" width="140" x="750" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-investor-participate" edge="1" parent="1" source="actor-investor" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;" target="uc-participate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-investor-auth" edge="1" parent="1" source="actor-investor" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;" target="uc-auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-investor-list" edge="1" parent="1" source="actor-investor" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;" target="uc-view-list">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-investor-confirm" edge="1" parent="1" source="actor-investor" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;" target="uc-confirm-tx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-blockchain-send" edge="1" parent="1" source="actor-blockchain" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;" target="uc-send-ton">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-blockchain-receive" edge="1" parent="1" source="actor-blockchain" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;" target="uc-receive-tokens">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-auth" edge="1" parent="1" source="uc-participate" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" target="uc-auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-auth-label" connectable="0" parent="include-auth" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="«include»" vertex="1">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="include-list" edge="1" parent="1" source="uc-participate" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" target="uc-view-list">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-list-label" connectable="0" parent="include-list" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="«include»" vertex="1">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="include-amount" edge="1" parent="1" source="uc-participate" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" target="uc-enter-amount">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-amount-label" connectable="0" parent="include-amount" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="«include»" vertex="1">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="include-confirm" edge="1" parent="1" source="uc-participate" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" target="uc-confirm-tx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-confirm-label" connectable="0" parent="include-confirm" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="«include»" vertex="1">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="include-send" edge="1" parent="1" source="uc-confirm-tx" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" target="uc-send-ton">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-send-label" connectable="0" parent="include-send" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="«include»" vertex="1">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="include-receive" edge="1" parent="1" source="uc-participate" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" target="uc-receive-tokens">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include-receive-label" connectable="0" parent="include-receive" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="«include»" vertex="1">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="extend-details" edge="1" parent="1" source="uc-view-details" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" target="uc-view-list">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="extend-details-label" connectable="0" parent="extend-details" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="«extend»" vertex="1">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

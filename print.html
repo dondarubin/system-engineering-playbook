@@ -194,7 +194,7 @@
 </ul>
 <p>Цель системы — предоставить создателям токенов инструмент для справедливого и прозрачного запуска проектов, а инвесторам — безопасную среду для участия в ранних стадиях криптопроектов.</p>
 <h3 id="12-Область-применения"><a class="header" href="#12-Область-применения"><strong>1.2 Область применения</strong></a></h3>
-<p>Платформа предназначена для использования создателями токенов (стартапы, сообщества, проекты) и инвесторами, желающими участвовать в ранних стадиях токенсейлов. Может применяться для запуска утилитарных токенов, мем-коинов и социальных токенов на блокчейне TON.</p>
+<p>Платформа предназначена для использования создателями токенов (стартапы, сообщества, проекты) и инвесторами, желающими участвовать в ранних стадиях лаунчей. Может применяться для запуска утилитарных токенов, мем-коинов и социальных токенов на блокчейне TON.</p>
 <h3 id="13-Предполагаемая-аудитория-документа"><a class="header" href="#13-Предполагаемая-аудитория-документа"><strong>1.3 Предполагаемая аудитория документа</strong></a></h3>
 <p>Настоящий документ предназначен для:</p>
 <ul>
@@ -258,7 +258,7 @@
 <p><strong>2. Oracle Service:</strong></p>
 <ul>
 <li>Сканирование Core контрактов для обнаружения новых лаунчей;</li>
-<li>Парсинг данных токенсейлов из блокчейна;</li>
+<li>Парсинг данных лаунчей из блокчейна;</li>
 <li>Интеграция с DEX (STON.fi, DeDust) для автоматического листинга;</li>
 <li>API для получения данных о лаунчах;</li>
 <li>Отправка уведомлений в Telegram.</li>
@@ -279,14 +279,14 @@
 </ul>
 <p><strong>5. Frontend (Telegram Mini App):</strong></p>
 <ul>
-<li>Интерфейс для просмотра и участия в токенсейлах;</li>
+<li>Интерфейс для просмотра и участия в лаунчах;</li>
 <li>Подключение кошелька через TON Connect;</li>
 <li>Управление портфелем инвестиций.</li>
 </ul>
 <p><strong>6. AI-Chatbot на базе LLM, обеспечивающий:</strong></p>
 <ul>
 <li>Ответы на вопросы пользователей о работе платформы;</li>
-<li>Объяснение механик токенсейлов;</li>
+<li>Объяснение механик лаунчей;</li>
 <li>Помощь в создании токена.</li>
 </ul>
 <h3 id="22-Функции-пользователя"><a class="header" href="#22-Функции-пользователя"><strong>2.2 Функции пользователя</strong></a></h3>
@@ -300,7 +300,7 @@
 <ol>
 <li>Создание токена через Core Contract с загрузкой метаданных в IPFS</li>
 <li>Трёхраундовая продажа токенов (Creator Round → Whitelist Round → Public Round)</li>
-<li>Инвестирование в токенсейлы с созданием персонального UserVault</li>
+<li>Инвестирование в лаунчи с созданием персонального UserVault</li>
 <li>Автоматический листинг на DEX после успешного сбора средств</li>
 </ol>
 <h3 id="23-Ограничения"><a class="header" href="#23-Ограничения"><strong>2.3 Ограничения</strong></a></h3>
@@ -354,7 +354,7 @@
 <h3 id="32-oracle-service"><a class="header" href="#32-oracle-service"><strong>3.2 Oracle Service</strong></a></h3>
 <div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
 <tr><td>OR-1</td><td>Oracle должен сканировать Core контракты и обнаруживать новые TokenLaunch</td><td>Высокий</td></tr>
-<tr><td>OR-2</td><td>Oracle должен парсить данные токенсейлов из блокчейна и сохранять в базу данных</td><td>Высокий</td></tr>
+<tr><td>OR-2</td><td>Oracle должен парсить данные лаунчей из блокчейна и сохранять в базу данных</td><td>Высокий</td></tr>
 <tr><td>OR-3</td><td>Oracle должен хранить высоту обработанных блоков для возобновления после перезапуска</td><td>Высокий</td></tr>
 <tr><td>OR-4</td><td>Oracle должен интегрироваться с STON.fi и DeDust для создания пулов ликвидности</td><td>Высокий</td></tr>
 <tr><td>OR-5</td><td>Oracle должен отправлять уведомления в Telegram о новых лаунчах</td><td>Средний</td></tr>
@@ -377,7 +377,7 @@
 </div>
 <h3 id="35-frontend-telegram-mini-app"><a class="header" href="#35-frontend-telegram-mini-app"><strong>3.5 Frontend (Telegram Mini App)</strong></a></h3>
 <div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
-<tr><td>FE-1</td><td>Приложение должно отображать список активных токенсейлов</td><td>Высокий</td></tr>
+<tr><td>FE-1</td><td>Приложение должно отображать список активных лаунчей</td><td>Высокий</td></tr>
 <tr><td>FE-2</td><td>Приложение должно отображать детальную страницу проекта с прогрессом сбора</td><td>Высокий</td></tr>
 <tr><td>FE-3</td><td>Приложение должно поддерживать подключение кошелька через TON Connect</td><td>Высокий</td></tr>
 <tr><td>FE-4</td><td>Приложение должно позволять инвестировать в проект (формирование транзакции)</td><td>Высокий</td></tr>
@@ -391,7 +391,7 @@
 <h3 id="36-ai-chatbot"><a class="header" href="#36-ai-chatbot"><strong>3.6 AI-Chatbot</strong></a></h3>
 <div class="table-wrapper"><table><thead><tr><th>ID</th><th>Требование</th><th>Приоритет</th></tr></thead><tbody>
 <tr><td>AI-1</td><td>Chatbot должен использовать LLM для генерации ответов на вопросы пользователей</td><td>Высокий</td></tr>
-<tr><td>AI-2</td><td>Chatbot должен отвечать на вопросы о работе платформы и механиках токенсейлов</td><td>Высокий</td></tr>
+<tr><td>AI-2</td><td>Chatbot должен отвечать на вопросы о работе платформы и механиках лаунчей</td><td>Высокий</td></tr>
 <tr><td>AI-3</td><td>Chatbot должен помогать пользователям в процессе создания токена</td><td>Средний</td></tr>
 <tr><td>AI-4</td><td>Chatbot должен поддерживать контекст диалога в рамках одной сессии</td><td>Высокий</td></tr>
 <tr><td>AI-5</td><td>Chatbot должен работать на русском и английском языках</td><td>Высокий</td></tr>
@@ -434,7 +434,7 @@
 <h2 id="5-Внешние-интерфейсы"><a class="header" href="#5-Внешние-интерфейсы"><strong>5. Внешние интерфейсы</strong></a></h2>
 <h3 id="51-Интерфейсы-пользователя-ui"><a class="header" href="#51-Интерфейсы-пользователя-ui"><strong>5.1 Интерфейсы пользователя (UI)</strong></a></h3>
 <ul>
-<li>Telegram Mini App: список токенсейлов, страница проекта, портфель, система задач, встроенный AI-чат.</li>
+<li>Telegram Mini App: список лаунчей, страница проекта, портфель, система задач, встроенный AI-чат.</li>
 <li>Telegram Bot: интерфейс администратора для управления системой.</li>
 </ul>
 <h3 id="52-Программные-интерфейсы"><a class="header" href="#52-Программные-интерфейсы"><strong>5.2 Программные интерфейсы</strong></a></h3>
@@ -455,52 +455,115 @@
 <li>База знаний для AI-Chatbot.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Компонентная-схема-сервисов"><a class="header" href="#Компонентная-схема-сервисов">Компонентная схема сервисов</a></h1>
-<p>Схема иллюстрирует архитектуру платформы StartON Launchpad — децентрализованной Web3-платформы для запуска токенов на блокчейне TON.</p>
-<h2 id="Ключевые-компоненты"><a class="header" href="#Ключевые-компоненты">Ключевые компоненты</a></h2>
-<h3 id="Пользователи"><a class="header" href="#Пользователи">Пользователи</a></h3>
+<p>Схема иллюстрирует архитектуру платформы StartON Launchpad — Web3-платформы для запуска токенов на блокчейне TON.</p>
+<h2 id="Компоненты"><a class="header" href="#Компоненты">Компоненты</a></h2>
+<h3 id="Инфраструктура"><a class="header" href="#Инфраструктура">Инфраструктура</a></h3>
 <ul>
-<li><strong>Создатель токена</strong> — запускает новые токенсейлы через платформу</li>
-<li><strong>Инвестор</strong> — участвует в токенсейлах и получает награды</li>
-<li><strong>Администратор</strong> — управляет платформой через Telegram Bot</li>
+<li><strong>Telegram Mini App</strong> — UI на React/Next.js + TON Connect + AI-Chatbot</li>
+<li><strong>Oracle Service</strong> — сканирует блокчейн, предоставляет данные о лаунчах</li>
+<li><strong>Manager Service</strong> — управление пользователями, задачами, whitelist + Telegram Bot</li>
+<li><strong>Dispenser Service</strong> — управление наградами и их распределение</li>
+<li><strong>PostgreSQL</strong> — основная база данных</li>
+<li><strong>IPFS (своя нода)</strong> — хранение метаданных токенов</li>
 </ul>
-<h3 id="frontend"><a class="header" href="#frontend">Frontend</a></h3>
+<h3 id="Смарт-контракты-в-ton-network"><a class="header" href="#Смарт-контракты-в-ton-network">Смарт-контракты (в TON Network)</a></h3>
 <ul>
-<li><strong>Telegram Mini App</strong> — основной пользовательский интерфейс для участия в токенсейлах</li>
-<li><strong>AI-Chatbot</strong> — интеллектуальный помощник на базе LLM для ответов на вопросы пользователей</li>
-<li><strong>TON Connect</strong> — протокол авторизации через TON-кошелёк</li>
-<li><strong>Telegram Bot</strong> — интерфейс для администрирования платформы</li>
+<li><strong>Core</strong> → <strong>TokenLaunch</strong> → <strong>UserVault</strong> / <strong>Jetton</strong></li>
+<li><strong>HighloadWallet</strong> — массовая рассылка наград</li>
 </ul>
-<h3 id="backend-services"><a class="header" href="#backend-services">Backend Services</a></h3>
+<h3 id="Внешние-сервисы"><a class="header" href="#Внешние-сервисы">Внешние сервисы</a></h3>
 <ul>
-<li><strong>Oracle Service</strong> — сканирует блокчейн TON, отслеживает транзакции токенсейлов, интегрируется с DEX</li>
-<li><strong>Manager Service</strong> — управляет лаунчами, пользователями, задачами, загружает метаданные в IPFS</li>
-<li><strong>Dispenser Service</strong> — управляет пулами наград и распределяет Jetton-награды через HighloadWallet</li>
+<li><strong>TON Wallet</strong> (Tonkeeper и др.) — кошельки пользователей</li>
+<li><strong>TON Network</strong> — блокчейн TON</li>
+<li><strong>DEX</strong> (STON.fi/DeDust) — автоматический листинг токенов</li>
+<li><strong>LLM API</strong> — ответы AI-чатбота</li>
+<li><strong>Telegram API</strong> — работа бота</li>
 </ul>
-<h3 id="Хранилище-данных"><a class="header" href="#Хранилище-данных">Хранилище данных</a></h3>
-<ul>
-<li><strong>PostgreSQL</strong> — основная база данных для хранения состояния системы</li>
-<li><strong>IPFS</strong> — децентрализованное хранилище метаданных токенов</li>
-</ul>
-<h3 id="ton-blockchain-Смарт-контракты"><a class="header" href="#ton-blockchain-Смарт-контракты">TON Blockchain (Смарт-контракты)</a></h3>
-<ul>
-<li><strong>Core Contract</strong> — фабрика для создания новых токенсейлов</li>
-<li><strong>TokenLaunch Contract</strong> — управляет жизненным циклом токенсейла</li>
-<li><strong>UserVault Contract</strong> — хранит инвестиции пользователей</li>
-<li><strong>Jetton Contracts</strong> — стандартные контракты токенов (JettonMaster/JettonWallet)</li>
-<li><strong>HighloadWalletV3</strong> — кошелёк для массовой рассылки транзакций</li>
-</ul>
-<h3 id="Внешние-системы"><a class="header" href="#Внешние-системы">Внешние системы</a></h3>
-<ul>
-<li><strong>DEX (STON.fi / DeDust)</strong> — децентрализованные биржи для листинга токенов</li>
-<li><strong>LLM API (OpenAI/Anthropic)</strong> — API для AI-Chatbot</li>
-<li><strong>Telegram API</strong> — API для работы с Telegram Bot</li>
-</ul>
+<hr />
+<h2 id="flow-взаимодействия"><a class="header" href="#flow-взаимодействия">Flow взаимодействия</a></h2>
+<h3 id="Участие-в-лаунче-Инвестор"><a class="header" href="#Участие-в-лаунче-Инвестор">Участие в лаунче (Инвестор)</a></h3>
+<pre><code>Инвестор → TMA → Oracle (данные о лаунче)
+                → Manager (регистрация, whitelist)
+                → TON Connect → TON Wallet → TON Network (депозит в TokenLaunch)
+</code></pre>
+<h3 id="Создание-лаунча-Создатель"><a class="header" href="#Создание-лаунча-Создатель">Создание лаунча (Создатель)</a></h3>
+<pre><code>Создатель → TMA → Manager → IPFS (загрузка метаданных)
+                → TON Connect → TON Wallet → TON Network (деплой через Core)
+</code></pre>
+<h3 id="Получение-наград-Инвестор"><a class="header" href="#Получение-наград-Инвестор">Получение наград (Инвестор)</a></h3>
+<pre><code>Инвестор → TMA → Dispenser (сумма для клейма)
+               → TON Connect → TON Wallet → TON Network
+               ← HighloadWallet (рассылка Jetton-наград)
+</code></pre>
+<h3 id="Администрирование"><a class="header" href="#Администрирование">Администрирование</a></h3>
+<pre><code>Админ → Telegram Bot (часть Manager) → PostgreSQL (задачи, награды)
+                                     → Telegram API (уведомления)
+</code></pre>
+<h3 id="Фоновые-процессы"><a class="header" href="#Фоновые-процессы">Фоновые процессы</a></h3>
+<pre><code>Oracle ← TON Network (сканирование транзакций)
+Oracle → DEX (создание пулов ликвидности)
+Oracle/Manager/Dispenser ↔ PostgreSQL (хранение данных)
+AI-Chatbot ↔ LLM API (ответы на вопросы)
+</code></pre>
+<hr />
 <h2 id="Диаграмма"><a class="header" href="#Диаграмма">Диаграмма</a></h2>
 <iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/component-schema.drawio"></iframe>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="c4-model"><a class="header" href="#c4-model">C4 Model</a></h1>
-<blockquote>
-<p>🚧 <strong>В разработке</strong></p>
-</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c4-Диаграммы"><a class="header" href="#c4-Диаграммы">C4 Диаграммы</a></h1>
+<p>C4 модель — методология визуализации архитектуры программного обеспечения с иерархической декомпозицией по уровням.</p>
+<h2 id="Структура-диаграмм"><a class="header" href="#Структура-диаграмм">Структура диаграмм</a></h2>
+<p>На одной странице представлены <strong>4 уровня</strong> декомпозиции:</p>
+<h3 id="1-system-context"><a class="header" href="#1-system-context">1. System Context</a></h3>
+<p>Общий вид системы как «чёрного ящика» с внешними акторами и системами.</p>
+<p><strong>Акторы:</strong></p>
+<ul>
+<li><strong>Создатель токена</strong> [Person] — запускает лаунчи через платформу</li>
+<li><strong>Инвестор</strong> [Person] — участвует в лаунчах, получает награды</li>
+<li><strong>Администратор</strong> [Person] — управляет платформой через Telegram Bot</li>
+</ul>
+<p><strong>Внешние системы:</strong></p>
+<ul>
+<li>TON Blockchain — хранение смарт-контрактов, транзакции</li>
+<li>Telegram — платформа для Mini App и Bot</li>
+<li>DEX (STON.fi/DeDust) — автоматический листинг токенов</li>
+<li>LLM API — AI-чатбот</li>
+</ul>
+<hr />
+<h3 id="2-containers"><a class="header" href="#2-containers">2. Containers</a></h3>
+<p>Внутренняя структура системы — сервисы, приложения, хранилища.</p>
+<div class="table-wrapper"><table><thead><tr><th>Контейнер</th><th>Технология</th><th>Назначение</th></tr></thead><tbody>
+<tr><td>Telegram Mini App</td><td>React, Next.js</td><td>Пользовательский UI</td></tr>
+<tr><td>Oracle Service</td><td>Node.js, Elysia</td><td>Сканер блокчейна, данные о лаунчах</td></tr>
+<tr><td>Manager Service</td><td>Node.js, Elysia</td><td>Пользователи, задачи, Telegram Bot</td></tr>
+<tr><td>Dispenser Service</td><td>Node.js, Elysia</td><td>Награды, распределение токенов</td></tr>
+<tr><td>PostgreSQL</td><td>Database</td><td>Хранение данных</td></tr>
+<tr><td>IPFS Node</td><td>Storage</td><td>Метаданные токенов</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="3-components-oracle-service"><a class="header" href="#3-components-oracle-service">3. Components: Oracle Service</a></h3>
+<p>Декомпозиция контейнера Oracle Service на компоненты.</p>
+<div class="table-wrapper"><table><thead><tr><th>Компонент</th><th>Технология</th><th>Назначение</th></tr></thead><tbody>
+<tr><td>API Routes</td><td>Elysia</td><td>REST endpoints для TMA</td></tr>
+<tr><td>Blockchain Scanner</td><td>TON SDK</td><td>Сканирование блокчейна</td></tr>
+<tr><td>DEX Integration</td><td>@ston-fi/sdk</td><td>Автоматический листинг на DEX</td></tr>
+<tr><td>Database Layer</td><td>postgres.js</td><td>Работа с PostgreSQL</td></tr>
+<tr><td>TON Client</td><td>@ton/ton</td><td>Взаимодействие с TON API</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h3 id="4-components-manager-service"><a class="header" href="#4-components-manager-service">4. Components: Manager Service</a></h3>
+<p>Декомпозиция контейнера Manager Service на компоненты.</p>
+<div class="table-wrapper"><table><thead><tr><th>Компонент</th><th>Технология</th><th>Назначение</th></tr></thead><tbody>
+<tr><td>User Routes</td><td>Elysia</td><td>API управления пользователями</td></tr>
+<tr><td>Launch Routes</td><td>Elysia</td><td>API управления лаунчами</td></tr>
+<tr><td>Telegram Bot</td><td>grammy</td><td>Бот для администрирования</td></tr>
+<tr><td>Database Layer</td><td>postgres.js</td><td>Работа с PostgreSQL</td></tr>
+<tr><td>IPFS Client</td><td>ipfs-http-client</td><td>Загрузка метаданных</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="Диаграмма-1"><a class="header" href="#Диаграмма-1">Диаграмма</a></h2>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/c4.drawio"></iframe>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="idef0"><a class="header" href="#idef0">IDEF0</a></h1>
 <blockquote>
 <p>🚧 <strong>В разработке</strong></p>
@@ -513,24 +576,248 @@
 <blockquote>
 <p>🚧 <strong>В разработке</strong></p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="uml-диаграммы"><a class="header" href="#uml-диаграммы">UML-диаграммы</a></h1>
-<blockquote>
-<p>🚧 <strong>В разработке</strong></p>
-</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uml-Диаграммы"><a class="header" href="#uml-Диаграммы">UML Диаграммы</a></h1>
+<p>По требованиям задания необходимо описать <strong>4 функции</strong> с помощью UML диаграмм.</p>
+<hr />
+<h2 id="1-Участие-в-лаунче"><a class="header" href="#1-Участие-в-лаунче">1. Участие в лаунче</a></h2>
+<p><strong>Описание:</strong> Инвестор подключает кошелёк, выбирает лаунч, отправляет TON и получает токены.</p>
+<p><strong>Акторы:</strong></p>
+<ul>
+<li>Инвестор</li>
+<li>Система (TMA, Oracle, Blockchain)</li>
+</ul>
+<p><strong>Основные шаги:</strong></p>
+<ol>
+<li>Инвестор открывает TMA в Telegram</li>
+<li>Подключает кошелёк через TON Connect</li>
+<li>Выбирает активный лаунч</li>
+<li>Указывает сумму инвестиции</li>
+<li>Подтверждает транзакцию в кошельке</li>
+<li>Система регистрирует участие в смарт-контракте</li>
+<li>Инвестор получает токены после завершения лаунча</li>
+</ol>
+<h3 id="use-case"><a class="header" href="#use-case">Use Case</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-use-case/use-case1.drawio"></iframe>
+<h3 id="activity"><a class="header" href="#activity">Activity</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-activity/activity1.drawio"></iframe>
+<h3 id="sequence"><a class="header" href="#sequence">Sequence</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-sequence/sequence1.drawio"></iframe>
+<hr />
+<h2 id="2-Создание-лаунча"><a class="header" href="#2-Создание-лаунча">2. Создание лаунча</a></h2>
+<p><strong>Описание:</strong> Создатель токена загружает метаданные и запускает новый лаунч через платформу.</p>
+<p><strong>Акторы:</strong></p>
+<ul>
+<li>Создатель токена</li>
+<li>Система (Manager, IPFS, Blockchain)</li>
+</ul>
+<p><strong>Основные шаги:</strong></p>
+<ol>
+<li>Создатель заполняет форму (название, символ, описание, изображение)</li>
+<li>Метаданные загружаются в IPFS</li>
+<li>Создатель настраивает параметры (цена, лимиты, сроки)</li>
+<li>Система деплоит смарт-контракт TokenLaunch</li>
+<li>Лаунч становится доступен для инвесторов</li>
+</ol>
+<h3 id="use-case-1"><a class="header" href="#use-case-1">Use Case</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-use-case/use-case2.drawio"></iframe>
+<h3 id="activity-1"><a class="header" href="#activity-1">Activity</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-activity/activity2.drawio"></iframe>
+<h3 id="sequence-1"><a class="header" href="#sequence-1">Sequence</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-sequence/sequence2.drawio"></iframe>
+<hr />
+<h2 id="3-Получение-наград-claim-rewards"><a class="header" href="#3-Получение-наград-claim-rewards">3. Получение наград (Claim Rewards)</a></h2>
+<p><strong>Описание:</strong> Пользователь просматривает доступные награды и выводит токены на свой кошелёк.</p>
+<p><strong>Акторы:</strong></p>
+<ul>
+<li>Пользователь (Инвестор)</li>
+<li>Система (Dispenser, Blockchain)</li>
+</ul>
+<p><strong>Основные шаги:</strong></p>
+<ol>
+<li>Пользователь открывает раздел "Rewards" в TMA</li>
+<li>Система отображает доступные reward pools</li>
+<li>Пользователь выбирает награду для вывода</li>
+<li>Нажимает "Claim"</li>
+<li>Система формирует транзакцию через Dispenser</li>
+<li>Пользователь подтверждает в кошельке</li>
+<li>Токены переводятся на кошелёк пользователя</li>
+</ol>
+<h3 id="use-case-2"><a class="header" href="#use-case-2">Use Case</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-use-case/use-case3.drawio"></iframe>
+<h3 id="activity-2"><a class="header" href="#activity-2">Activity</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-activity/activity3.drawio"></iframe>
+<h3 id="sequence-2"><a class="header" href="#sequence-2">Sequence</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-sequence/sequence3.drawio"></iframe>
+<hr />
+<h2 id="4-refund-при-неудачном-лаунче"><a class="header" href="#4-refund-при-неудачном-лаунче">4. Refund при неудачном лаунче</a></h2>
+<p><strong>Описание:</strong> Инвестор запрашивает возврат вложенных средств до деплоя токена.</p>
+<p><strong>Условия для Refund (проверяются смарт-контрактом):</strong></p>
+<ul>
+<li>Время после окончания creator round</li>
+<li>Токен ещё не задеплоен (пул на DEX не создан)</li>
+</ul>
+<p><strong>Акторы:</strong></p>
+<ul>
+<li>Инвестор</li>
+<li>Система (TMA, Oracle, Blockchain)</li>
+<li>Смарт-контракты (TokenLaunch, UserVault)</li>
+</ul>
+<p><strong>Основные шаги:</strong></p>
+<ol>
+<li>Инвестор открывает TMA и видит свой баланс в лаунче</li>
+<li>Нажимает кнопку "Claim Refund"</li>
+<li>Смарт-контракт проверяет условия (время, статус токена)</li>
+<li>Пользователь подтверждает транзакцию в кошельке</li>
+<li>UserVault возвращает TON на кошелёк инвестора</li>
+</ol>
+<p><strong>Примечание:</strong> Oracle фиксирует статус лаунча для отображения на UI, но логика refund работает независимо на уровне смарт-контракта.</p>
+<h3 id="use-case-3"><a class="header" href="#use-case-3">Use Case</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-use-case/use-case4.drawio"></iframe>
+<h3 id="activity-3"><a class="header" href="#activity-3">Activity</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-activity/activity4.drawio"></iframe>
+<h3 id="sequence-3"><a class="header" href="#sequence-3">Sequence</a></h3>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-sequence/sequence4.drawio"></iframe>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bpmn-диаграммы"><a class="header" href="#bpmn-диаграммы">BPMN-диаграммы</a></h1>
 <blockquote>
 <p>🚧 <strong>В разработке</strong></p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="architectural-decision-records-adr"><a class="header" href="#architectural-decision-records-adr">Architectural Decision Records (ADR)</a></h1>
-<blockquote>
-<p>🚧 <strong>В разработке</strong></p>
-</blockquote>
+<h2 id="1-Выбор-блокчейна-ton-the-open-network"><a class="header" href="#1-Выбор-блокчейна-ton-the-open-network">1. Выбор блокчейна: TON (The Open Network)</a></h2>
+<p><strong>Статус:</strong> Принято</p>
+<p><strong>Контекст:</strong>
+Требуется блокчейн-платформа для проведения лаунчей с высокой пропускной способностью, низкими комиссиями и интеграцией с Telegram.</p>
+<p><strong>Варианты:</strong></p>
+<ul>
+<li><strong>Ethereum</strong>: Наибольшая экосистема DeFi, но высокие gas fees ($5-50 за транзакцию) и медленное время блока (12 сек).</li>
+<li><strong>Solana</strong>: Высокая скорость (400мс), но сложная интеграция с Telegram и частые сбои сети.</li>
+<li><strong>TON</strong>: Нативная интеграция с Telegram, низкие комиссии ($0.01-0.05), высокая TPS (до 100k).</li>
+</ul>
+<p><strong>Выбор:</strong> TON (The Open Network)</p>
+<p><strong>Обоснование:</strong></p>
+<ul>
+<li>Нативная интеграция с Telegram через Mini Apps и TON Connect обеспечивает доступ к 900M+ пользователей.</li>
+<li>Sharding-архитектура позволяет масштабироваться без увеличения комиссий.</li>
+<li>Язык FunC/Tact для смарт-контрактов оптимизирован под асинхронные вызовы.</li>
+</ul>
+<p><strong>Последствия:</strong></p>
+<ul>
+<li>(+) Комиссии в 100-500 раз ниже, чем в Ethereum.</li>
+<li>(+) Время финализации транзакции ~5 секунд.</li>
+<li>(-) Меньше разработчиков и инструментов по сравнению с EVM-экосистемой.</li>
+<li>(-) Блокчейн писали обезьяны.</li>
+</ul>
+<hr />
+<h2 id="2-backend-framework-elysiajs"><a class="header" href="#2-backend-framework-elysiajs">2. Backend Framework: Elysia.js</a></h2>
+<p><strong>Статус:</strong> Принято</p>
+<p><strong>Контекст:</strong>
+Требуется высокопроизводительный HTTP-сервер для API с поддержкой TypeScript и валидацией схем.</p>
+<p><strong>Варианты:</strong></p>
+<ul>
+<li><strong>Express.js</strong>: Зрелая экосистема, но низкая производительность (15k req/s) и отсутствие встроенной типизации.</li>
+<li><strong>Fastify</strong>: Высокая скорость (75k req/s), но сложная интеграция с TypeBox.</li>
+<li><strong>Elysia.js</strong>: Максимальная производительность (90k req/s на Bun), end-to-end типизация, встроенная валидация.</li>
+</ul>
+<p><strong>Выбор:</strong> Elysia.js + Bun runtime</p>
+<p><strong>Обоснование:</strong></p>
+<ul>
+<li>Производительность в 6 раз выше Express благодаря Bun runtime.</li>
+<li>End-to-end типизация от схемы запроса до ответа без генерации кода.</li>
+<li>Встроенная поддержка Swagger/OpenAPI документации.</li>
+</ul>
+<p><strong>Последствия:</strong></p>
+<ul>
+<li>(+) Сокращение boilerplate-кода на 40% по сравнению с Express.</li>
+<li>(+) Автоматическая генерация типов для клиента.</li>
+<li>(-) Bun менее стабилен, чем Node.js для production (смягчается через Docker-изоляцию).</li>
+</ul>
+<hr />
+<h2 id="3-frontend-telegram-mini-app-tma"><a class="header" href="#3-frontend-telegram-mini-app-tma">3. Frontend: Telegram Mini App (TMA)</a></h2>
+<p><strong>Статус:</strong> Принято</p>
+<p><strong>Контекст:</strong>
+Требуется пользовательский интерфейс с максимальным охватом аудитории и простотой onboarding.</p>
+<p><strong>Варианты:</strong></p>
+<ul>
+<li><strong>Standalone Web App</strong>: Полный контроль над UX, но требует отдельной регистрации пользователей.</li>
+<li><strong>Native Mobile App</strong>: Лучший UX, но долгая модерация в App Store/Google Play и высокая стоимость разработки.</li>
+<li><strong>Telegram Mini App</strong>: Мгновенный доступ через Telegram, встроенная авторизация, viral-распространение.</li>
+</ul>
+<p><strong>Выбор:</strong> Telegram Mini App (Next.js)</p>
+<p><strong>Обоснование:</strong></p>
+<ul>
+<li>Zero-friction onboarding: пользователь уже авторизован через Telegram.</li>
+<li>Встроенные платежи через TON Connect без перехода в внешние кошельки.</li>
+<li>Viral-механики: share-кнопки для распространения лаунчей в чатах.</li>
+</ul>
+<p><strong>Последствия:</strong></p>
+<ul>
+<li>(+) CAC (Customer Acquisition Cost) снижен на 80% за счёт organic-трафика.</li>
+<li>(+) Нет необходимости в App Store оптимизации.</li>
+<li>(-) Ограничения платформы Telegram (размер бандла, отсутствие push-notifications вне чата).</li>
+</ul>
+<hr />
+<h2 id="4-База-данных-postgresql"><a class="header" href="#4-База-данных-postgresql">4. База данных: PostgreSQL</a></h2>
+<p><strong>Статус:</strong> Принято</p>
+<p><strong>Контекст:</strong>
+Требуется СУБД для хранения данных о пользователях, лаунчах, транзакциях с поддержкой сложных запросов.</p>
+<p><strong>Варианты:</strong></p>
+<ul>
+<li><strong>MongoDB</strong>: Гибкая схема, но отсутствие ACID для финансовых операций.</li>
+<li><strong>MySQL</strong>: Широко распространена, но слабая поддержка JSON и массивов.</li>
+<li><strong>PostgreSQL</strong>: Полный ACID, богатые типы данных (JSONB, arrays), расширяемость.</li>
+</ul>
+<p><strong>Выбор:</strong> PostgreSQL + postgres.js</p>
+<p><strong>Обоснование:</strong></p>
+<ul>
+<li>ACID-гарантии критичны для финансовых операций (балансы, транзакции).</li>
+<li>JSONB позволяет хранить метаданные токенов без миграций схемы.</li>
+<li>postgres.js обеспечивает type-safe запросы через tagged templates с минимальным overhead.</li>
+</ul>
+<p><strong>Последствия:</strong></p>
+<ul>
+<li>(+) Возможность сложных аналитических запросов через window functions.</li>
+<li>(+) Встроенная поддержка full-text search для поиска лаунчей.</li>
+<li>(-) Требует настройки репликации для high availability (решается через managed PostgreSQL).</li>
+</ul>
+<hr />
+<h2 id="5-Хранение-метаданных-ipfs"><a class="header" href="#5-Хранение-метаданных-ipfs">5. Хранение метаданных: IPFS</a></h2>
+<p><strong>Статус:</strong> Принято</p>
+<p><strong>Контекст:</strong>
+Требуется децентрализованное хранилище для метаданных токенов (изображения, описания), которые ссылаются из смарт-контрактов.</p>
+<p><strong>Варианты:</strong></p>
+<ul>
+<li><strong>Centralized CDN (S3)</strong>: Быстро и дёшево, но single point of failure и цензуроопасность.</li>
+<li><strong>Arweave</strong>: Permanent storage, но высокая стоимость ($5+ за МБ).</li>
+<li><strong>IPFS</strong>: Децентрализованное хранение, content-addressing, бесплатное при self-hosting.</li>
+</ul>
+<p><strong>Выбор:</strong> Self-hosted IPFS Node</p>
+<p><strong>Обоснование:</strong></p>
+<ul>
+<li>Content-addressing гарантирует, что метаданные не могут быть подменены после публикации.</li>
+<li>Стандарт для NFT/токенов: кошельки и маркетплейсы автоматически резолвят IPFS-ссылки.</li>
+<li>Self-hosted нода обеспечивает контроль над доступностью данных.</li>
+</ul>
+<p><strong>Последствия:</strong></p>
+<ul>
+<li>(+) Метаданные сохраняются навсегда при наличии хотя бы одной пинящей ноды.</li>
+<li>(+) Интероперабельность с другими Web3-сервисами.</li>
+<li>(-) Требует мониторинга IPFS-ноды и периодического garbage collection.</li>
+</ul>
+<hr />
+<h2 id="Итоговая-архитектура"><a class="header" href="#Итоговая-архитектура">Итоговая архитектура</a></h2>
+<p>Архитектурные решения оптимизированы под следующие приоритеты:</p>
+<ol>
+<li><strong>Низкий барьер входа</strong> — Telegram Mini App + TON Connect обеспечивают мгновенный onboarding.</li>
+<li><strong>Производительность</strong> — Elysia.js + Bun + PostgreSQL обеспечивают low-latency API.</li>
+<li><strong>Децентрализация</strong> — TON blockchain + IPFS гарантируют censorship-resistance.</li>
+<li><strong>Масштабируемость</strong> — Microservices архитектура (Oracle, Manager, Dispenser) позволяет независимое масштабирование.</li>
+<li><strong>AI-интеграция</strong> — LLM-чатбот с RAG обеспечивает умную поддержку пользователей.</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="swagger-api"><a class="header" href="#swagger-api">Swagger API</a></h1>
 <p>Документация публичного API платформы StartON Launchpad в формате OpenAPI 3.0.</p>
 <h2 id="Сервисы"><a class="header" href="#Сервисы">Сервисы</a></h2>
 <p>API платформы разделён на три сервиса:</p>
 <div class="table-wrapper"><table><thead><tr><th>Сервис</th><th>Описание</th></tr></thead><tbody>
-<tr><td><strong>Oracle Service</strong></td><td>Получение данных о токенсейлах, поиск и фильтрация</td></tr>
+<tr><td><strong>Oracle Service</strong></td><td>Получение данных о лаунчах, поиск и фильтрация</td></tr>
 <tr><td><strong>Manager Service</strong></td><td>Управление лаунчами, пользователями, задачами и whitelist</td></tr>
 <tr><td><strong>Dispenser Service</strong></td><td>Управление наградами и их распределением</td></tr>
 </tbody></table>

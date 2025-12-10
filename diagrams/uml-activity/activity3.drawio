@@ -1,0 +1,188 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.6">
+  <diagram name="Activity 3 - Получение наград" id="activity-3">
+    <mxGraphModel dx="2102" dy="1562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" value="Activity: Получение наград (Claim Rewards)" vertex="1">
+          <mxGeometry height="40" width="500" x="550" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pool" parent="1" style="swimlane;horizontal=0;startSize=30;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="800" width="1500" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-user" parent="pool" style="swimlane;horizontal=0;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Пользователь" vertex="1">
+          <mxGeometry height="200" width="1500" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane-user" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="50" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane-user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Нажать&#xa;«Подключить&#xa;кошелёк»" vertex="1">
+          <mxGeometry height="60" width="100" x="120" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a-confirm-auth" parent="lane-user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Подтвердить&#xa;в кошельке" vertex="1">
+          <mxGeometry height="50" width="100" x="360" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane-user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Открыть&#xa;Rewards" vertex="1">
+          <mxGeometry height="50" width="90" x="600" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" parent="lane-user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Выбрать&#xa;награду" vertex="1">
+          <mxGeometry height="50" width="90" x="820" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" parent="lane-user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Нажать&#xa;Claim" vertex="1">
+          <mxGeometry height="50" width="90" x="940" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="a-confirm-tx" parent="lane-user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Подтвердить&#xa;транзакцию" vertex="1">
+          <mxGeometry height="50" width="100" x="1200" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="lane-user" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f-user1" edge="1" parent="lane-user" source="a5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-system" parent="pool" style="swimlane;horizontal=0;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;" value="TMA / Dispenser" vertex="1">
+          <mxGeometry height="220" width="1500" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="a-tonconnect" parent="lane-system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Открыть&#xa;TON Connect" vertex="1">
+          <mxGeometry height="50" width="100" x="240" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="d-auth" parent="lane-system" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Авторизация успешна?" vertex="1">
+          <mxGeometry height="70" width="80" x="500" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane-system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Загрузить&#xa;reward pools" vertex="1">
+          <mxGeometry height="50" width="100" x="700" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="d-rewards" parent="lane-system" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Есть&#xa;награды?" vertex="1">
+          <mxGeometry height="70" width="80" x="830" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="end-no-rewards" parent="lane-system" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="855" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="a7" parent="lane-system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Сформировать&#xa;транзакцию" vertex="1">
+          <mxGeometry height="50" width="100" x="1070" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="d-tx" parent="lane-system" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Транзакция подтверждена?" vertex="1">
+          <mxGeometry height="70" width="90" x="1330" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="a-error-tx" parent="lane-system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Отмена" vertex="1">
+          <mxGeometry height="40" width="80" x="1200" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="f-auth-no" edge="1" parent="lane-system" source="d-auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a-tonconnect">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="180" />
+              <mxPoint x="290" y="180" />
+            </Array>
+            <mxPoint x="400" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f-auth-no-label" parent="lane-system" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="[Нет]" vertex="1">
+          <mxGeometry height="20" width="40" x="500" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="f-auth-yes-label" parent="lane-system" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="[Да]" vertex="1">
+          <mxGeometry height="20" width="40" x="580" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="f-rewards-yes-label" parent="lane-system" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="[Да]" vertex="1">
+          <mxGeometry height="20" width="40" x="870" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="f-tx-yes-label" parent="lane-system" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="[Да]" vertex="1">
+          <mxGeometry height="20" width="40" x="1370" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="f-tx-no-label" parent="lane-system" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="[Нет]" vertex="1">
+          <mxGeometry height="20" width="40" x="1290" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-blockchain" parent="pool" style="swimlane;horizontal=0;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;" value="Blockchain" vertex="1">
+          <mxGeometry height="380" width="1500" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="a9" parent="lane-blockchain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Отправить в&#xa;Dispenser" vertex="1">
+          <mxGeometry height="50" width="100" x="1200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="a10" parent="lane-blockchain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="HighloadWallet&#xa;рассылает" vertex="1">
+          <mxGeometry height="50" width="100" x="1200" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="a11" parent="lane-blockchain" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Токены на&#xa;кошельке" vertex="1">
+          <mxGeometry height="50" width="100" x="1200" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="lane-blockchain" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="1235" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="f10" edge="1" parent="lane-blockchain" source="a9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" edge="1" parent="lane-blockchain" source="a10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f12" edge="1" parent="lane-blockchain" source="a11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="pool" source="a1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a-tonconnect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="pool" source="a-tonconnect" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a-confirm-auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="pool" source="a-confirm-auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="d-auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f-auth-yes" edge="1" parent="pool" source="d-auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="pool" source="a3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="pool" source="a4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="d-rewards">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f-rewards-yes" edge="1" parent="pool" source="d-rewards" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="870" y="170" />
+              <mxPoint x="870" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f-rewards-no" edge="1" parent="pool" source="d-rewards" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="end-no-rewards">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f-rewards-no-label" parent="pool" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="[Нет]" vertex="1">
+          <mxGeometry height="20" width="40" x="870" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" edge="1" parent="pool" source="a6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" edge="1" parent="pool" source="a7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a-confirm-tx">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f9" edge="1" parent="pool" source="a-confirm-tx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="d-tx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f-tx-yes" edge="1" parent="pool" source="d-tx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="a9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1375" y="430" />
+              <mxPoint x="1250" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f-tx-no" edge="1" parent="pool" source="d-tx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;" target="a-error-tx">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1260" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f-tx-retry" edge="1" parent="pool" source="a-error-tx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="a7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1120" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
