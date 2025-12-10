@@ -576,14 +576,116 @@ AI-Chatbot ↔ LLM API (ответы на вопросы)
 <blockquote>
 <p>🚧 <strong>В разработке</strong></p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="dfd-data-flow-diagram"><a class="header" href="#dfd-data-flow-diagram">DFD (Data Flow Diagram)</a></h1>
-<blockquote>
-<p>🚧 <strong>В разработке</strong></p>
-</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dfd-data-flow-diagrams"><a class="header" href="#dfd-data-flow-diagrams">DFD (Data Flow Diagrams)</a></h1>
+<p>Диаграммы потоков данных (DFD) описывают движение информации между сервисами системы StartON Launchpad.</p>
+<hr />
+<h2 id="Нотация-dfd"><a class="header" href="#Нотация-dfd">Нотация DFD</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Элемент</th><th>Описание</th></tr></thead><tbody>
+<tr><td><strong>Внешняя сущность</strong> (прямоугольник)</td><td>Источник или получатель данных вне системы</td></tr>
+<tr><td><strong>Процесс</strong> (эллипс)</td><td>Сервис или операция преобразования данных</td></tr>
+<tr><td><strong>Хранилище данных</strong> (открытый прямоугольник)</td><td>База данных, смарт-контракт, файловое хранилище</td></tr>
+<tr><td><strong>Поток данных</strong> (стрелка с номером)</td><td>Данные с указанием последовательности (1, 2, 3...)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Важно:</strong> Номера на стрелках показывают <strong>последовательность</strong> потоков данных.</p>
+<hr />
+<h2 id="1-Участие-в-лаунче-токена-через-telegram-mini-app-с-инвестированием-ton"><a class="header" href="#1-Участие-в-лаунче-токена-через-telegram-mini-app-с-инвестированием-ton">1. Участие в лаунче токена через Telegram Mini App с инвестированием TON</a></h2>
+<p><strong>Потоки данных:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>№</th><th>Поток</th><th>Описание</th></tr></thead><tbody>
+<tr><td>1</td><td>Запрос лаунчей</td><td>Инвестор → TMA</td></tr>
+<tr><td>2</td><td>Запрос данных лаунчей</td><td>TMA → Oracle Service</td></tr>
+<tr><td>3</td><td>SQL-запрос</td><td>Oracle → База данных</td></tr>
+<tr><td>4</td><td>Массив лаунчей</td><td>База данных → Oracle</td></tr>
+<tr><td>5</td><td>Список лаунчей</td><td>Oracle → TMA</td></tr>
+<tr><td>6</td><td>Список лаунчей (UI)</td><td>TMA → Инвестор</td></tr>
+<tr><td>7</td><td>Данные инвестиции</td><td>Инвестор → TMA</td></tr>
+<tr><td>8</td><td>Запрос авторизации</td><td>TMA → TON Connect</td></tr>
+<tr><td>9</td><td>Запрос подключения</td><td>TON Connect → Wallet</td></tr>
+<tr><td>10</td><td>Адрес кошелька</td><td>Wallet → TMA</td></tr>
+<tr><td>11</td><td>Параметры транзакции</td><td>TMA → Формирование транзакции</td></tr>
+<tr><td>12</td><td>Транзакция на подпись</td><td>Формирование → Wallet</td></tr>
+<tr><td>13</td><td>Подписанная транзакция</td><td>Wallet → Регистрация</td></tr>
+<tr><td>14</td><td>Данные транзакции</td><td>Регистрация → TON Blockchain</td></tr>
+<tr><td>15</td><td>Обновление баланса</td><td>Регистрация → UserVault</td></tr>
+<tr><td>16</td><td>Подтверждение участия</td><td>TON Blockchain → Инвестор</td></tr>
+</tbody></table>
+</div><iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/dfd/dfd1.drawio"></iframe>
+<hr />
+<h2 id="2-Создание-токена-через-core-контракт-с-загрузкой-метаданных-в-ipfs"><a class="header" href="#2-Создание-токена-через-core-контракт-с-загрузкой-метаданных-в-ipfs">2. Создание токена через Core-контракт с загрузкой метаданных в IPFS</a></h2>
+<p><strong>Потоки данных:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>№</th><th>Поток</th><th>Описание</th></tr></thead><tbody>
+<tr><td>1</td><td>Данные формы (все)</td><td>Создатель → TMA</td></tr>
+<tr><td>2</td><td>Данные для загрузки</td><td>TMA → Manager Service</td></tr>
+<tr><td>3</td><td>Запрос загрузки</td><td>Manager → Загрузка в IPFS</td></tr>
+<tr><td>4</td><td>Файлы метаданных</td><td>Загрузка → IPFS Storage</td></tr>
+<tr><td>5</td><td>Хеш IPFS</td><td>IPFS → Manager</td></tr>
+<tr><td>6</td><td>Конфигурация лаунча</td><td>Manager → База данных</td></tr>
+<tr><td>7</td><td>Статус готовности</td><td>Manager → TMA</td></tr>
+<tr><td>8</td><td>Подтверждение деплоя</td><td>Создатель → TMA</td></tr>
+<tr><td>9</td><td>Данные для деплоя</td><td>TMA → Формирование деплоя</td></tr>
+<tr><td>10</td><td>Транзакция на подпись</td><td>Формирование → Wallet</td></tr>
+<tr><td>11</td><td>Подписанная транзакция</td><td>Wallet → Деплой контракта</td></tr>
+<tr><td>12</td><td>Код контракта</td><td>Деплой → TON Blockchain</td></tr>
+<tr><td>13</td><td>Событие нового лаунча</td><td>Blockchain → Oracle Database</td></tr>
+<tr><td>14</td><td>Подтверждение создания</td><td>Oracle Database → Создатель</td></tr>
+</tbody></table>
+</div><iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/dfd/dfd2.drawio"></iframe>
+<hr />
+<h2 id="3-Получение-наград-из-reward-pools-через-dispenser-service"><a class="header" href="#3-Получение-наград-из-reward-pools-через-dispenser-service">3. Получение наград из Reward Pools через Dispenser Service</a></h2>
+<p><strong>Потоки данных:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>№</th><th>Поток</th><th>Описание</th></tr></thead><tbody>
+<tr><td>1</td><td>Запрос наград</td><td>Пользователь → TMA</td></tr>
+<tr><td>2</td><td>Запрос авторизации</td><td>TMA → TON Connect</td></tr>
+<tr><td>3</td><td>Запрос подключения</td><td>TON Connect → Wallet</td></tr>
+<tr><td>4</td><td>Адрес кошелька</td><td>Wallet → TMA</td></tr>
+<tr><td>5</td><td>Запрос списка наград</td><td>TMA → Dispenser Service</td></tr>
+<tr><td>6</td><td>Запрос к базе данных</td><td>Dispenser → База данных</td></tr>
+<tr><td>7</td><td>Список наград</td><td>База данных → TMA</td></tr>
+<tr><td>8</td><td>Отображение наград</td><td>TMA → Пользователь</td></tr>
+<tr><td>9</td><td>Выбор награды</td><td>Пользователь → TMA</td></tr>
+<tr><td>10</td><td>Данные запроса</td><td>TMA → Валидация запроса</td></tr>
+<tr><td>11</td><td>Проверка пула</td><td>Валидация → Reward Pools</td></tr>
+<tr><td>12</td><td>Баланс пула</td><td>Reward Pools → Валидация</td></tr>
+<tr><td>13</td><td>Подтверждённый запрос</td><td>Валидация → Отправка токенов</td></tr>
+<tr><td>14</td><td>Пакетная транзакция</td><td>Отправка → HighloadWallet</td></tr>
+<tr><td>15</td><td>Отправка транзакции</td><td>HighloadWallet → TON Blockchain</td></tr>
+<tr><td>16</td><td>Токены</td><td>TON Blockchain → Wallet</td></tr>
+<tr><td>17</td><td>Подтверждение получения</td><td>Wallet → Пользователь</td></tr>
+</tbody></table>
+</div><iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/dfd/dfd3.drawio"></iframe>
+<hr />
+<h2 id="4-Возврат-средств-refund-при-неуспешном-завершении-лаунча"><a class="header" href="#4-Возврат-средств-refund-при-неуспешном-завершении-лаунча">4. Возврат средств (Refund) при неуспешном завершении лаунча</a></h2>
+<p><strong>Потоки данных:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>№</th><th>Поток</th><th>Описание</th></tr></thead><tbody>
+<tr><td>1</td><td>Запрос статуса лаунча</td><td>Инвестор → TMA</td></tr>
+<tr><td>2</td><td>Запрос авторизации</td><td>TMA → TON Connect</td></tr>
+<tr><td>3</td><td>Запрос подключения</td><td>TON Connect → Wallet</td></tr>
+<tr><td>4</td><td>Адрес кошелька</td><td>Wallet → TMA</td></tr>
+<tr><td>5</td><td>Запрос данных лаунча</td><td>TMA → Oracle Service</td></tr>
+<tr><td>6</td><td>Запрос к базе данных</td><td>Oracle → База данных</td></tr>
+<tr><td>7</td><td>Данные лаунча (статус)</td><td>База данных → Oracle</td></tr>
+<tr><td>8</td><td>Статус и баланс</td><td>Oracle → TMA</td></tr>
+<tr><td>9</td><td>Доступен возврат</td><td>TMA → Инвестор</td></tr>
+<tr><td>10</td><td>Запрос на возврат</td><td>Инвестор → TMA</td></tr>
+<tr><td>11</td><td>Параметры возврата</td><td>TMA → Формирование возврата</td></tr>
+<tr><td>12</td><td>Проверка условий</td><td>Формирование → TokenLaunch</td></tr>
+<tr><td>13</td><td>Транзакция на подпись</td><td>Формирование → Wallet</td></tr>
+<tr><td>14</td><td>Подписанная транзакция</td><td>Wallet → Выполнение возврата</td></tr>
+<tr><td>15</td><td>Списание баланса</td><td>Выполнение → UserVault</td></tr>
+<tr><td>16</td><td>Перевод TON</td><td>UserVault → TON Blockchain</td></tr>
+<tr><td>17</td><td>Возвращённые TON</td><td>TON Blockchain → Инвестор</td></tr>
+</tbody></table>
+</div>
+<p><strong>Условия для Refund:</strong></p>
+<ul>
+<li>Время после окончания creator round</li>
+<li>Токен не задеплоен (статус: Failed)</li>
+</ul>
+<iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/dfd/dfd4.drawio"></iframe>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uml-Диаграммы"><a class="header" href="#uml-Диаграммы">UML Диаграммы</a></h1>
 <p>По требованиям задания необходимо описать <strong>4 функции</strong> с помощью UML диаграмм.</p>
 <hr />
-<h2 id="1-Участие-в-лаунче-токена-через-telegram-mini-app-с-инвестированием-ton"><a class="header" href="#1-Участие-в-лаунче-токена-через-telegram-mini-app-с-инвестированием-ton">1. Участие в лаунче токена через Telegram Mini App с инвестированием TON</a></h2>
+<h2 id="1-Участие-в-лаунче-токена-через-telegram-mini-app-с-инвестированием-ton-1"><a class="header" href="#1-Участие-в-лаунче-токена-через-telegram-mini-app-с-инвестированием-ton-1">1. Участие в лаунче токена через Telegram Mini App с инвестированием TON</a></h2>
 <p><strong>Описание:</strong> Инвестор подключает криптокошелёк через протокол TON Connect, просматривает список активных лаунчей, выбирает интересующий проект и инвестирует TON для покупки токенов в соответствующем раунде.</p>
 <p><strong>Акторы:</strong></p>
 <ul>
@@ -607,7 +709,7 @@ AI-Chatbot ↔ LLM API (ответы на вопросы)
 <h3 id="sequence"><a class="header" href="#sequence">Sequence</a></h3>
 <iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-sequence/sequence1.drawio"></iframe>
 <hr />
-<h2 id="2-Создание-токена-через-core-контракт-с-загрузкой-метаданных-в-ipfs"><a class="header" href="#2-Создание-токена-через-core-контракт-с-загрузкой-метаданных-в-ipfs">2. Создание токена через Core-контракт с загрузкой метаданных в IPFS</a></h2>
+<h2 id="2-Создание-токена-через-core-контракт-с-загрузкой-метаданных-в-ipfs-1"><a class="header" href="#2-Создание-токена-через-core-контракт-с-загрузкой-метаданных-в-ipfs-1">2. Создание токена через Core-контракт с загрузкой метаданных в IPFS</a></h2>
 <p><strong>Описание:</strong> Создатель токена загружает изображение и метаданные в распределённое хранилище IPFS через Manager Service, настраивает параметры лаунча и инициирует деплой смарт-контракта TokenLaunch через Core-контракт на блокчейне TON.</p>
 <p><strong>Акторы:</strong></p>
 <ul>
@@ -629,7 +731,7 @@ AI-Chatbot ↔ LLM API (ответы на вопросы)
 <h3 id="sequence-1"><a class="header" href="#sequence-1">Sequence</a></h3>
 <iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-sequence/sequence2.drawio"></iframe>
 <hr />
-<h2 id="3-Получение-наград-из-reward-pools-через-dispenser-service"><a class="header" href="#3-Получение-наград-из-reward-pools-через-dispenser-service">3. Получение наград из Reward Pools через Dispenser Service</a></h2>
+<h2 id="3-Получение-наград-из-reward-pools-через-dispenser-service-1"><a class="header" href="#3-Получение-наград-из-reward-pools-через-dispenser-service-1">3. Получение наград из Reward Pools через Dispenser Service</a></h2>
 <p><strong>Описание:</strong> Пользователь открывает раздел наград в Telegram Mini App, просматривает доступные пулы вознаграждений, инициирует запрос на получение токенов, и Dispenser Service через HighloadWallet выполняет массовую рассылку на кошелёк пользователя.</p>
 <p><strong>Акторы:</strong></p>
 <ul>
@@ -653,7 +755,7 @@ AI-Chatbot ↔ LLM API (ответы на вопросы)
 <h3 id="sequence-2"><a class="header" href="#sequence-2">Sequence</a></h3>
 <iframe class="drawio-viewer" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagram&url=https://raw.githubusercontent.com/dondarubin/system-engineering-playbook/main/src/diagrams/uml-sequence/sequence3.drawio"></iframe>
 <hr />
-<h2 id="4-Возврат-средств-refund-при-неуспешном-завершении-лаунча"><a class="header" href="#4-Возврат-средств-refund-при-неуспешном-завершении-лаунча">4. Возврат средств (Refund) при неуспешном завершении лаунча</a></h2>
+<h2 id="4-Возврат-средств-refund-при-неуспешном-завершении-лаунча-1"><a class="header" href="#4-Возврат-средств-refund-при-неуспешном-завершении-лаунча-1">4. Возврат средств (Refund) при неуспешном завершении лаунча</a></h2>
 <p><strong>Описание:</strong> Инвестор просматривает страницу лаунча, на котором токен не был задеплоен, видит свой баланс и доступность refund, инициирует запрос на возврат вложенных TON; смарт-контракт UserVault проверяет условия и возвращает средства на кошелёк.</p>
 <p><strong>Условия для Refund (проверяются смарт-контрактом):</strong></p>
 <ul>

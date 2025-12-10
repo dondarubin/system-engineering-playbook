@@ -1,0 +1,190 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="DFD - Возврат средств" id="dfd4">
+    <mxGraphModel dx="1544" dy="1366" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="DFD: Возврат средств (Refund) при неуспешном завершении лаунча" vertex="1">
+          <mxGeometry height="30" width="700" x="400" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="investor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;shadow=1;" value="Инвестор" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="wallet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;shadow=1;" value="TON Wallet" vertex="1">
+          <mxGeometry height="60" width="120" x="910" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="tma" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="1.0&#xa;TMA" vertex="1">
+          <mxGeometry height="80" width="120" x="330" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="oracle" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="2.0&#xa;Oracle&#xa;Service" vertex="1">
+          <mxGeometry height="80" width="120" x="500" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tonconnect" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="3.0&#xa;TON&#xa;Connect" vertex="1">
+          <mxGeometry height="80" width="120" x="500" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="refund_tx" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="4.0&#xa;Формирование&#xa;возврата" vertex="1">
+          <mxGeometry height="80" width="120" x="800" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="refund_exec" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="5.0&#xa;Выполнение&#xa;возврата" vertex="1">
+          <mxGeometry height="80" width="120" x="1160" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_oracle" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D1  |  Oracle Database" vertex="1">
+          <mxGeometry height="40" width="180" x="790" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_vault" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D2  |  UserVault Contract" vertex="1">
+          <mxGeometry height="40" width="180" x="1200" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_launch" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D3  |  TokenLaunch Contract" vertex="1">
+          <mxGeometry height="40" width="190" x="790" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_ton" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D4  |  TON Blockchain" vertex="1">
+          <mxGeometry height="40" width="180" x="1320" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="investor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="1. Запрос статуса лаунча">
+          <mxGeometry relative="1" x="0.0471" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="250" y="350" />
+              <mxPoint x="250" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tonconnect" value="2. Запрос авторизации">
+          <mxGeometry relative="1" x="-0.3001" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="560" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="tonconnect" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="wallet" value="3. Запрос подключения">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="850" y="490" />
+              <mxPoint x="850" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="wallet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="4. Адрес кошелька">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="540" />
+              <mxPoint x="390" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="oracle" value="5. Запрос данных лаунча">
+          <mxGeometry relative="1" x="-0.2728" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="560" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="oracle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="ds_oracle" value="6. Запрос к базе данных">
+          <mxGeometry relative="1" x="-0.0509" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="700" y="180" />
+              <mxPoint x="700" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f7" edge="1" parent="1" source="ds_oracle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="oracle" value="7. Данные лаунча (статус)">
+          <mxGeometry relative="1" x="-0.0588" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="730" y="200" />
+              <mxPoint x="730" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f8" edge="1" parent="1" source="oracle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="8. Статус и баланс">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f9" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="investor" value="9. Доступен возврат">
+          <mxGeometry relative="1" x="-0.011" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="250" y="330" />
+              <mxPoint x="250" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f10" edge="1" parent="1" source="investor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="10. Запрос на возврат">
+          <mxGeometry relative="1" x="-0.1013" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="250" y="380" />
+              <mxPoint x="250" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f11" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="refund_tx" value="11. Параметры возврата">
+          <mxGeometry relative="1" x="-0.2222" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="630" y="360" />
+              <mxPoint x="630" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f12" edge="1" parent="1" source="refund_tx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="ds_launch" value="12. Проверка условий">
+          <mxGeometry relative="1" x="0.0769" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="860" y="290" />
+              <mxPoint x="860" y="290" />
+            </Array>
+            <mxPoint x="920" y="330" as="sourcePoint" />
+            <mxPoint x="945" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f13" edge="1" parent="1" source="refund_tx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="wallet" value="13. Транзакция на подпись">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="990" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f14" edge="1" parent="1" source="wallet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="refund_exec" value="14. Подписанная транзакция">
+          <mxGeometry relative="1" x="-0.4222" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1220" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f15" edge="1" parent="1" source="refund_exec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="ds_vault" value="15. Списание баланса">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1220" y="260" />
+              <mxPoint x="1220" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f16" edge="1" parent="1" source="ds_vault" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="ds_ton" value="16. Перевод TON">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1370" y="290" />
+              <mxPoint x="1370" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f17" edge="1" parent="1" source="ds_ton" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="investor" value="17. Возвращённые TON">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1370" y="580" />
+              <mxPoint x="100" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

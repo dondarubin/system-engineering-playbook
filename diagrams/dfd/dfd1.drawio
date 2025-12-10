@@ -1,0 +1,167 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="DFD - Участие в лаунче" id="dfd1">
+    <mxGraphModel dx="2508" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="DFD: Участие в лаунче токена через Telegram Mini App с инвестированием TON" vertex="1">
+          <mxGeometry height="30" width="700" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="investor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;shadow=1;" value="Инвестор" vertex="1">
+          <mxGeometry height="60" width="120" x="-20" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="wallet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;shadow=1;" value="TON Wallet" vertex="1">
+          <mxGeometry height="60" width="120" x="940" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="tma" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="1.0&#xa;TMA&#xa;(Telegram&#xa;Mini App)" vertex="1">
+          <mxGeometry height="100" width="140" x="280" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="oracle" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="2.0&#xa;Oracle&#xa;Service" vertex="1">
+          <mxGeometry height="100" width="140" x="530" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tonconnect" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="3.0&#xa;Авторизация&#xa;TON Connect" vertex="1">
+          <mxGeometry height="100" width="140" x="530" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="tx" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="4.0&#xa;Формирование&#xa;транзакции&#xa;инвестиции" vertex="1">
+          <mxGeometry height="100" width="140" x="690" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="register" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="5.0&#xa;Регистрация&#xa;участия в&#xa;TokenLaunch" vertex="1">
+          <mxGeometry height="100" width="140" x="1080" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_oracle" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D1  |  Oracle Database" vertex="1">
+          <mxGeometry height="40" width="180" x="810" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_ton" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D2  |  TON Blockchain" vertex="1">
+          <mxGeometry height="40" width="180" x="1110" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_vault" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D3  |  UserVault Contract" vertex="1">
+          <mxGeometry height="40" width="180" x="1280" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="1. Запрос лаунчей">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="100" y="350" />
+            </Array>
+            <mxPoint x="100" y="370" as="sourcePoint" />
+            <mxPoint x="280" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tonconnect" value="8. Запрос авторизации">
+          <mxGeometry relative="1" x="-0.3007" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="600" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="tonconnect" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="wallet" value="9. Запрос подключения">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="wallet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="10. Адрес кошелька">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1040" y="290" />
+              <mxPoint x="360" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="oracle" value="2. Запрос данных лаунчей">
+          <mxGeometry relative="1" x="-0.2509" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="600" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="oracle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="ds_oracle" value="3. SQL-запрос">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="220" />
+              <mxPoint x="840" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f7" edge="1" parent="1" source="ds_oracle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="oracle" value="4. Массив лаунчей">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="810" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f8" edge="1" parent="1" source="oracle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="5. Список лаунчей">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f9" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="investor" value="6. Список лаунчей (UI)">
+          <mxGeometry relative="1" x="-0.2222" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="190" y="320" />
+              <mxPoint x="190" y="320" />
+            </Array>
+            <mxPoint x="280" y="340.0000000000001" as="sourcePoint" />
+            <mxPoint x="100" y="340.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f10" edge="1" parent="1" source="investor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tma" value="7. Данные инвестиции">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="380" />
+              <mxPoint x="190" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f11" edge="1" parent="1" source="tma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="tx" value="11. Параметры транзакции">
+          <mxGeometry relative="1" x="-0.3413" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="610" y="380" />
+              <mxPoint x="610" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f12" edge="1" parent="1" source="tx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="wallet" value="12. Транзакция на подпись">
+          <mxGeometry relative="1" x="-0.2595" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1000" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f13" edge="1" parent="1" source="wallet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="register" value="13. Подписанная транзакция">
+          <mxGeometry relative="1" x="0.2342" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1110" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f14" edge="1" parent="1" source="register" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="ds_ton" value="14. Данные транзакции">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1180" y="470" />
+              <mxPoint x="1180" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f15" edge="1" parent="1" source="register" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="ds_vault" value="15. Обновление баланса">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f16" edge="1" parent="1" source="ds_ton" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontSize=10;labelBackgroundColor=#ffffff;" target="investor" value="16. Подтверждение участия">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1200" y="620" />
+              <mxPoint x="40" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
