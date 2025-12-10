@@ -217,6 +217,11 @@
                → TON Connect → TON Wallet → TON Network
                ← HighloadWallet (рассылка Jetton-наград)
 </code></pre>
+<h3 id="refund-при-неудачном-лаунче-Инвестор"><a class="header" href="#refund-при-неудачном-лаунче-Инвестор">Refund при неудачном лаунче (Инвестор)</a></h3>
+<pre><code>Инвестор → TMA → Oracle (статус лаунча)
+               → TON Connect → TON Wallet → TON Network (запрос refund в TokenLaunch)
+               ← UserVault (возврат TON)
+</code></pre>
 <h3 id="Администрирование"><a class="header" href="#Администрирование">Администрирование</a></h3>
 <pre><code>Админ → Telegram Bot (часть Manager) → PostgreSQL (задачи, награды)
                                      → Telegram API (уведомления)
