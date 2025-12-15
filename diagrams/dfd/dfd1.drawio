@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
   <diagram name="DFD - Участие в лаунче" id="dfd1">
-    <mxGraphModel dx="2508" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="2629" dy="911" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -13,20 +13,39 @@
         <mxCell id="wallet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;shadow=1;" value="TON Wallet" vertex="1">
           <mxGeometry height="60" width="120" x="940" y="460" as="geometry" />
         </mxCell>
-        <mxCell id="tma" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="1.0&#xa;TMA&#xa;(Telegram&#xa;Mini App)" vertex="1">
-          <mxGeometry height="100" width="140" x="280" y="300" as="geometry" />
+        <mxCell id="tma" parent="1" style="swimlane;rounded=1;whiteSpace=wrap;html=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;arcSize=20;horizontal=1;" value="1.0" vertex="1">
+          <mxGeometry height="100" width="140" x="280" y="300" as="geometry">
+            <mxRectangle height="30" width="60" x="280" y="300" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="oracle" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="2.0&#xa;Oracle&#xa;Service" vertex="1">
+        <mxCell id="tma_label" parent="tma" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" value="TMA&#xa;(Telegram&#xa;Mini App)" vertex="1">
+          <mxGeometry height="74" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="oracle" parent="1" style="swimlane;rounded=1;whiteSpace=wrap;html=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;arcSize=20;horizontal=1;" value="2.0" vertex="1">
           <mxGeometry height="100" width="140" x="530" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="tonconnect" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="3.0&#xa;Авторизация&#xa;TON Connect" vertex="1">
-          <mxGeometry height="100" width="140" x="530" y="440" as="geometry" />
+        <mxCell id="oracle_label" parent="oracle" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" value="Oracle&#xa;Service" vertex="1">
+          <mxGeometry height="74" width="140" y="26" as="geometry" />
         </mxCell>
-        <mxCell id="tx" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="4.0&#xa;Формирование&#xa;транзакции&#xa;инвестиции" vertex="1">
+        <mxCell id="tonconnect" parent="1" style="swimlane;rounded=1;whiteSpace=wrap;html=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;arcSize=20;horizontal=1;" value="3.0" vertex="1">
+          <mxGeometry height="100" width="140" x="530" y="440" as="geometry">
+            <mxRectangle height="30" width="60" x="530" y="440" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tonconnect_label" parent="tonconnect" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" value="Авторизация&#xa;TON Connect" vertex="1">
+          <mxGeometry height="74" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="tx" parent="1" style="swimlane;rounded=1;whiteSpace=wrap;html=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;arcSize=20;horizontal=1;" value="4.0" vertex="1">
           <mxGeometry height="100" width="140" x="690" y="320" as="geometry" />
         </mxCell>
-        <mxCell id="register" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="5.0&#xa;Регистрация&#xa;участия в&#xa;TokenLaunch" vertex="1">
+        <mxCell id="tx_label" parent="tx" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" value="Формирование&#xa;транзакции&#xa;инвестиции" vertex="1">
+          <mxGeometry height="74" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="register" parent="1" style="swimlane;rounded=1;whiteSpace=wrap;html=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;arcSize=20;horizontal=1;" value="5.0" vertex="1">
           <mxGeometry height="100" width="140" x="1080" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="register_label" parent="register" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" value="Регистрация&#xa;участия в&#xa;TokenLaunch" vertex="1">
+          <mxGeometry height="74" width="140" y="26" as="geometry" />
         </mxCell>
         <mxCell id="ds_oracle" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=1;right=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;fontStyle=1;align=left;spacingLeft=10;" value="D1  |  Oracle Database" vertex="1">
           <mxGeometry height="40" width="180" x="810" y="180" as="geometry" />
